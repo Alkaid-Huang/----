@@ -1,0 +1,118 @@
+[gd_resource type="Theme" format=3 uid="uid://i068x2x7sj30"]
+
+[ext_resource type="Texture2D" uid="uid://b3dnaqrksdo4o" path="res://assets/othergame/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_wg6cg"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wg6cg"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-eb5d42d303074e6a3f5b83edb60cbdb7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amrph"]
+atlas = SubResource("CompressedTexture2D_wg6cg")
+region = Rect2(59, 11, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5bppn"]
+texture = SubResource("AtlasTexture_amrph")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 26, 26)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iq520"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-eb5d42d303074e6a3f5b83edb60cbdb7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8lni"]
+atlas = SubResource("CompressedTexture2D_iq520")
+region = Rect2(59, 107, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_31dqc"]
+texture = SubResource("AtlasTexture_k8lni")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 26, 26)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_21gvu"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-eb5d42d303074e6a3f5b83edb60cbdb7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auudg"]
+atlas = SubResource("CompressedTexture2D_21gvu")
+region = Rect2(59, 59, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rofpc"]
+texture = SubResource("AtlasTexture_auudg")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqskg"]
+atlas = ExtResource("1_wg6cg")
+region = Rect2(59, 155, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_chmsu"]
+texture = SubResource("AtlasTexture_kqskg")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 26, 26)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r76ny"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-eb5d42d303074e6a3f5b83edb60cbdb7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miluc"]
+atlas = SubResource("CompressedTexture2D_r76ny")
+region = Rect2(59, 107, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_le22p"]
+texture = SubResource("AtlasTexture_miluc")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg6cg"]
+atlas = ExtResource("1_wg6cg")
+region = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_amrph"]
+texture = SubResource("AtlasTexture_wg6cg")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cicg8"]
+atlas = ExtResource("1_wg6cg")
+region = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7p3kp"]
+texture = SubResource("AtlasTexture_cicg8")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_5bppn")
+Button/styles/focus = SubResource("StyleBoxTexture_31dqc")
+Button/styles/hover = SubResource("StyleBoxTexture_rofpc")
+Button/styles/normal = SubResource("StyleBoxTexture_chmsu")
+Button/styles/pressed = SubResource("StyleBoxTexture_le22p")
+CharacterNameText/base_type = &"RichTextLabel"
+CharacterNameText/font_sizes/bold_font_size = 16
+CharacterNameText/font_sizes/bold_italics_font_size = 16
+CharacterNameText/font_sizes/italics_font_size = 16
+CharacterNameText/font_sizes/mono_font_size = 16
+CharacterNameText/font_sizes/normal_font_size = 18
+DialogueText/base_type = &"RichTextLabel"
+DialogueText/font_sizes/normal_font_size = 16
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+Panel/styles/panel = SubResource("StyleBoxTexture_amrph")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_7p3kp")

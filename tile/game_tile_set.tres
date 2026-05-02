@@ -1,0 +1,35 @@
+[gd_resource type="TileSet" format=3 uid="uid://cnnpxmu0mnv01"]
+
+[ext_resource type="Texture2D" uid="uid://dej4o3tax6jba" path="res://assets/othergame/objects/Basic Grass Biom things 1.png" id="1_8lmdc"]
+[ext_resource type="Texture2D" uid="uid://dxpmrxliyl4dt" path="res://assets/images/建筑素材/房屋部件.png" id="2_8lmdc"]
+[ext_resource type="Texture2D" uid="uid://dn5rfs1g3i7c3" path="res://assets/images/游戏主场景素材/草5.png" id="3_s373u"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vv4cq"]
+texture = ExtResource("1_8lmdc")
+0:0/size_in_atlas = Vector2i(1, 2)
+0:0/0 = 0
+1:0/size_in_atlas = Vector2i(2, 2)
+1:0/0 = 0
+3:0/size_in_atlas = Vector2i(3, 3)
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s373u"]
+texture = ExtResource("2_8lmdc")
+10:15/size_in_atlas = Vector2i(4, 3)
+10:15/0 = 0
+10:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-18.705307, -14.928274, -19.065025, -17.446297, 23.699806, -15.009878, 23.897305, 14.975647, 20.066883, 14.269783, 19.436474, 8.603031, -14.748416, 7.733927, -15.108133, 15.467852, -18.705307, 15.108133, -19.244884, 6.834633)
+12:13/size_in_atlas = Vector2i(2, 2)
+12:13/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0e08i"]
+texture = ExtResource("3_s373u")
+1:1/0 = 0
+
+[resource]
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Gress"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/2 = SubResource("TileSetAtlasSource_s373u")
+sources/1 = SubResource("TileSetAtlasSource_vv4cq")
+sources/4 = SubResource("TileSetAtlasSource_0e08i")
