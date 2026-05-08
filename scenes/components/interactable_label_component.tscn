@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dc0je7q2ltugp"]
 
-[ext_resource type="Texture2D" uid="uid://xk2axwdvdqt2" path="res://assets/images/游戏主场景素材/主场景npc素材/交互插图.png" id="1_7h0ts"]
+[ext_resource type="Texture2D" uid="uid://xk2axwdvdqt2" path="res://assets/images/UI/交互插图.png" id="1_7h0ts"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_am6vt"]
 atlas = ExtResource("1_7h0ts")
@@ -11,14 +11,15 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1023521616]
 layout_mode = 0
-offset_left = 1.0
-offset_top = -1.0
-offset_right = 326.0
-offset_bottom = 116.0
-scale = Vector2(0.2, 0.2)
+offset_left = -0.9999999
+offset_right = 243.0
+offset_bottom = 117.0
+scale = Vector2(0.1, 0.1)
 texture = SubResource("AtlasTexture_am6vt")

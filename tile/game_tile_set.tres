@@ -1,8 +1,14 @@
 [gd_resource type="TileSet" format=3 uid="uid://cnnpxmu0mnv01"]
 
 [ext_resource type="Texture2D" uid="uid://dej4o3tax6jba" path="res://assets/othergame/objects/Basic Grass Biom things 1.png" id="1_8lmdc"]
+[ext_resource type="Texture2D" uid="uid://cyok5vm40nn03" path="res://assets/images/游戏主场景素材/草5 (1).png" id="1_vv4cq"]
 [ext_resource type="Texture2D" uid="uid://dxpmrxliyl4dt" path="res://assets/images/建筑素材/房屋部件.png" id="2_8lmdc"]
-[ext_resource type="Texture2D" uid="uid://dn5rfs1g3i7c3" path="res://assets/images/游戏主场景素材/草5.png" id="3_s373u"]
+[ext_resource type="Texture2D" uid="uid://csxic3eo3t8xg" path="res://assets/images/游戏主场景素材/草大 (1).png" id="4_0e08i"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_011sy"]
+texture = ExtResource("1_vv4cq")
+1:1/size_in_atlas = Vector2i(2, 2)
+1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vv4cq"]
 texture = ExtResource("1_8lmdc")
@@ -21,9 +27,10 @@ texture = ExtResource("2_8lmdc")
 12:13/size_in_atlas = Vector2i(2, 2)
 12:13/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0e08i"]
-texture = ExtResource("3_s373u")
-1:1/0 = 0
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m6dxm"]
+texture = ExtResource("4_0e08i")
+3:3/size_in_atlas = Vector2i(2, 2)
+3:3/0 = 0
 
 [resource]
 physics_layer_0/collision_layer = 1
@@ -32,4 +39,5 @@ terrain_set_0/terrain_0/name = "Gress"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/2 = SubResource("TileSetAtlasSource_s373u")
 sources/1 = SubResource("TileSetAtlasSource_vv4cq")
-sources/4 = SubResource("TileSetAtlasSource_0e08i")
+sources/0 = SubResource("TileSetAtlasSource_011sy")
+sources/3 = SubResource("TileSetAtlasSource_m6dxm")

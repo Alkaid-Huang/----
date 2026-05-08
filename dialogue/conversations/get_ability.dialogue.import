@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://b6u43xqebinqn"
+path="res://.godot/imported/get_ability.dialogue-bbc980636bb6fb2af6ed47d18998cb97.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/get_ability.dialogue"
+dest_files=["res://.godot/imported/get_ability.dialogue-bbc980636bb6fb2af6ed47d18998cb97.tres"]
+
+[params]
+
+defaults=true

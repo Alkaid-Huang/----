@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dbbumgbctbute"]
+
+[ext_resource type="Texture2D" uid="uid://bi8hd6ddy3atc" path="res://assets/images/游戏主场景素材/主场景，破旧.jpg" id="1_kttiq"]
+[ext_resource type="PackedScene" uid="uid://bqt1w502rudn6" path="res://scenes/characters/player/player.tscn" id="2_kttiq"]
+[ext_resource type="PackedScene" uid="uid://ceps4in61bcuo" path="res://scenes/characters/NPC/npc1.tscn" id="3_r8rdx"]
+
+[node name="TestScenePlayerAndNPC" type="Node2D" unique_id=1543794146]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=808665429]
+position = Vector2(580, 340.00003)
+scale = Vector2(0.6835318, 0.6420139)
+texture = ExtResource("1_kttiq")
+
+[node name="Player" parent="Sprite2D" unique_id=1451378286 instance=ExtResource("2_kttiq")]
+position = Vector2(-20.481812, -51.400787)
+scale = Vector2(1.4629896, 1.5575986)
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D/Player" unique_id=2140034381]
+zoom = Vector2(2.5, 2.5)
+
+[node name="NPC1" parent="Sprite2D" unique_id=798983459 instance=ExtResource("3_r8rdx")]
+position = Vector2(93.63135, -80.99518)
+scale = Vector2(1.4629896, 1.5575986)

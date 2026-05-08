@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://wchaenm05s8o"]
+
+[ext_resource type="Texture2D" uid="uid://dt5vdjuo1ypv1" path="res://assets/images/第三关场景素材/窗花_02.png" id="1_5ydww"]
+[ext_resource type="Texture2D" uid="uid://dyektfxeh4vnn" path="res://assets/测试/red.jpg" id="1_py5c4"]
+[ext_resource type="Script" uid="uid://basbaje33i4vl" path="res://scenes/mainscenes/level3/drawing_canvas.gd" id="1_upxwj"]
+[ext_resource type="Script" uid="uid://b7upv4hb6020m" path="res://scenes/mainscenes/level3/game_manager.gd" id="2_5ydww"]
+
+[node name="WindowFlowerLevel" type="Node2D" unique_id=650300838]
+
+[node name="PaperGroup" type="Node2D" parent="." unique_id=1518678428]
+position = Vector2(576, 324)
+
+[node name="PaperBg" type="Sprite2D" parent="PaperGroup" unique_id=857476775]
+position = Vector2(256, 260)
+texture = ExtResource("1_py5c4")
+offset = Vector2(-256, -256)
+
+[node name="QuarterMask" type="Node2D" parent="PaperGroup" unique_id=1399884059]
+
+[node name="MaskRight" type="ColorRect" parent="PaperGroup/QuarterMask" unique_id=1750844250]
+offset_top = -252.0
+offset_right = 256.0
+offset_bottom = 260.0
+mouse_filter = 2
+color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[node name="MaskBottom" type="ColorRect" parent="PaperGroup/QuarterMask" unique_id=424619927]
+offset_left = -256.0
+offset_top = 4.0
+offset_right = 256.0
+offset_bottom = 260.0
+mouse_filter = 2
+color = Color(0.05805995, 0.05805995, 0.05805995, 1)
+
+[node name="TargetQuarter" type="Sprite2D" parent="PaperGroup" unique_id=767264964]
+texture = ExtResource("1_5ydww")
+
+[node name="CutLine" type="Line2D" parent="." unique_id=1097818649]
+
+[node name="UnfoldedContainer" type="Node2D" parent="." unique_id=254313665]
+position = Vector2(576, 328)
+
+[node name="DrawingLayer" type="CanvasLayer" parent="." unique_id=1042937036]
+script = ExtResource("1_upxwj")
+
+[node name="ValidationUI" type="CanvasLayer" parent="." unique_id=1294857806]
+
+[node name="ProgressBar" type="ProgressBar" parent="ValidationUI" unique_id=2140202192]
+offset_left = 376.0
+offset_top = 584.0
+offset_right = 776.0
+offset_bottom = 611.0
+
+[node name="LabelResult" type="Label" parent="ValidationUI" unique_id=157718202]
+offset_left = 576.0
+offset_top = 610.0
+offset_right = 616.0
+offset_bottom = 633.0
+vertical_alignment = 1
+
+[node name="BtnFold" type="Button" parent="ValidationUI" unique_id=2018407231]
+offset_left = 776.0
+offset_top = 584.0
+offset_right = 856.0
+offset_bottom = 615.0
+text = "折叠"
+
+[node name="BtnUnfold" type="Button" parent="ValidationUI" unique_id=1117631930]
+offset_left = 856.0
+offset_top = 584.0
+offset_right = 936.0
+offset_bottom = 615.0
+text = "展开"
+
+[node name="BtnReset" type="Button" parent="ValidationUI" unique_id=320472090]
+offset_left = 936.0
+offset_top = 584.0
+offset_right = 1016.0
+offset_bottom = 615.0
+text = "重做"
+
+[node name="GameManager" type="Node" parent="." unique_id=597292552]
+script = ExtResource("2_5ydww")

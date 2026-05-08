@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://bs02cwx7djli4"]
+
+[ext_resource type="Script" uid="uid://bbn2wi256fcc4" path="res://scenes/mainscenes/level_2_beam_installation.gd" id="1_37vrr"]
+[ext_resource type="PackedScene" uid="uid://btwo7nbxeuhrx" path="res://scenes/other/liang_good.tscn" id="2_byhhs"]
+[ext_resource type="PackedScene" uid="uid://dtmumjsfp75py" path="res://scenes/other/liang_bad.tscn" id="3_qc7w0"]
+[ext_resource type="Texture2D" uid="uid://ou6jhnj6r4p7" path="res://assets/测试/blue.jpg" id="4_p8l5m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2vle3"]
+size = Vector2(20, 22)
+
+[node name="Level2_BeamInstallation" type="Node2D" unique_id=1555834814]
+script = ExtResource("1_37vrr")
+liang_good_scene = ExtResource("2_byhhs")
+liang_bad_scene = ExtResource("3_qc7w0")
+
+[node name="Background" type="TextureRect" parent="." unique_id=327818068]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -40.0
+offset_right = 1176.0
+offset_bottom = 656.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("4_p8l5m")
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1679479407]
+position = Vector2(556, 48)
+
+[node name="TargetZone" type="Area2D" parent="." unique_id=581696634]
+position = Vector2(556, 256)
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetZone" unique_id=210758713]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_2vle3")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=340851522]
+
+[node name="Status" type="Label" parent="UI" unique_id=546340617]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "等待下落"
+
+[node name="Confirm" type="Button" parent="UI" unique_id=1059442495]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "确认"
+
+[node name="Result" type="Label" parent="UI" unique_id=1781456801]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0

@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_054tb"]
+
+[resource]
+script = ExtResource("1_054tb")
+using_states = PackedStringArray()
+cues = {
+"start": "1"
+}
+character_names = PackedStringArray("NPC")
+first_cue = "0"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": "cue"
+},
+"1": {
+&"character": "NPC",
+&"id": "1",
+&"next_id": "2",
+&"static_id": "",
+&"text": "庭院杂草丛生，我传你\"灵力除草术\"。学会后去清理它们吧。",
+&"type": "dialogue"
+},
+"2": {
+&"id": "2",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"3": {
+&"id": "3",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+}
+}
+metadata/dialogue_manager_version = "3.10.1"

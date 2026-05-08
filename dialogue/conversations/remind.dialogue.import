@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cpksf74x3xq01"
+path="res://.godot/imported/remind.dialogue-dd26d014c3c12b4ef01372f80496bb6e.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/remind.dialogue"
+dest_files=["res://.godot/imported/remind.dialogue-dd26d014c3c12b4ef01372f80496bb6e.tres"]
+
+[params]
+
+defaults=true

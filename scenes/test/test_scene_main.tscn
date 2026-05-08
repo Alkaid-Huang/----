@@ -1,31 +1,27 @@
 [gd_scene format=4 uid="uid://pn3ah5828xsr"]
 
 [ext_resource type="Texture2D" uid="uid://bi8hd6ddy3atc" path="res://assets/images/游戏主场景素材/主场景，破旧.jpg" id="1_3pgn3"]
-[ext_resource type="TileSet" uid="uid://cnnpxmu0mnv01" path="res://tile/game_tile_set.tres" id="1_nsirb"]
 [ext_resource type="PackedScene" uid="uid://bqt1w502rudn6" path="res://scenes/characters/player/player.tscn" id="2_laglb"]
 [ext_resource type="PackedScene" uid="uid://ceps4in61bcuo" path="res://scenes/characters/NPC/npc1.tscn" id="3_3pgn3"]
-[ext_resource type="PackedScene" uid="uid://beegya3dmoxfd" path="res://scenes/components/interactable_component.tscn" id="5_fr4lr"]
-[ext_resource type="Texture2D" uid="uid://cpphu868v4mj7" path="res://assets/images/游戏主场景素材/主场景，没有树.jpg" id="5_hel03"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_a5ayh"]
-radius = 35.146286
+[ext_resource type="Script" uid="uid://b05sct34hwxeu" path="res://scenes/test/button.gd" id="3_fr4lr"]
+[ext_resource type="TileSet" uid="uid://cnnpxmu0mnv01" path="res://tile/game_tile_set.tres" id="5_3pgn3"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_fr4lr"]
 a = Vector2(-3.6575928, 74.601)
 b = Vector2(50.473083, 34.103455)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5ayh"]
-size = Vector2(280.4174, 390.6187)
+size = Vector2(250.21559, 581.86914)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_3pgn3"]
 a = Vector2(285.28302, 29.59436)
 b = Vector2(226.76343, -24.9216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pgn3"]
-size = Vector2(21.703949, 49.8431)
+size = Vector2(21.703949, 57.631207)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hel03"]
-size = Vector2(21.703918, 48.2856)
+size = Vector2(21.703918, 57.631264)
 
 [node name="TestSceneMain" type="Node2D" unique_id=1543794146]
 
@@ -41,25 +37,20 @@ scale = Vector2(1.4629896, 1.5575986)
 [node name="Camera2D" type="Camera2D" parent="Sprite2D/Player" unique_id=1362894112]
 zoom = Vector2(2.5, 2.5)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Sprite2D/Player/Camera2D" unique_id=386449112]
+layer = 5
+
+[node name="Button" type="Button" parent="Sprite2D/Player/Camera2D/CanvasLayer" unique_id=134872299]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "按钮"
+script = ExtResource("3_fr4lr")
+
 [node name="NPC1" parent="Sprite2D" unique_id=798983459 instance=ExtResource("3_3pgn3")]
 position = Vector2(93.63135, -80.99518)
 scale = Vector2(1.4629896, 1.5575986)
 
-[node name="desk" type="TileMapLayer" parent="Sprite2D" unique_id=1278051758]
-scale = Vector2(0.99999976, 0.9999999)
-tile_map_data = PackedByteArray("AAD6//v/AgAKAA8AAAAIAPP/AQAVABsAAAAIAAMAAAAAAAAAAAD2/wMAAAAAAAAAAAD0//r/AAAAAAAAAAALAPX/AAAAAAAAAAA=")
-tile_set = ExtResource("1_nsirb")
-
-[node name="InteractableComponent" parent="Sprite2D/desk" unique_id=1492290113 instance=ExtResource("5_fr4lr")]
-position = Vector2(-62.36847, -180.76376)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/desk/InteractableComponent" unique_id=1752597237]
-position = Vector2(-25.410873, 99.76859)
-shape = SubResource("CircleShape2D_a5ayh")
-debug_color = Color(0.94086075, 0.011000957, 0.61049837, 0.41960785)
-
 [node name="CollisionMap" type="Node2D" parent="Sprite2D" unique_id=343794983]
-visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D/CollisionMap" unique_id=1032501094]
 collision_mask = 2
@@ -72,17 +63,17 @@ shape = SubResource("SegmentShape2D_fr4lr")
 [node name="StaticBody2D2" type="StaticBody2D" parent="Sprite2D/CollisionMap" unique_id=1609015371]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/CollisionMap/StaticBody2D2" unique_id=604545429]
-position = Vector2(-373.79373, -27.257965)
-rotation = 0.16929698
-scale = Vector2(0.9999995, 0.9999998)
+position = Vector2(-348.19153, -34.267216)
+rotation = -0.0041342117
+scale = Vector2(0.9999994, 0.99999976)
 shape = SubResource("RectangleShape2D_a5ayh")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Sprite2D/CollisionMap" unique_id=418903904]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/CollisionMap/StaticBody2D3" unique_id=451598298]
-position = Vector2(400.6125, -6.1150513)
-rotation = -0.16929707
-scale = Vector2(0.99999934, 0.99999976)
+position = Vector2(378.9143, -85.66796)
+rotation = -0.0004876675
+scale = Vector2(0.9999986, 0.9999996)
 shape = SubResource("RectangleShape2D_a5ayh")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Sprite2D/CollisionMap" unique_id=897170889]
@@ -131,19 +122,21 @@ shape = SubResource("SegmentShape2D_3pgn3")
 [node name="StaticBody2D9" type="StaticBody2D" parent="Sprite2D/CollisionMap" unique_id=1492628483]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/CollisionMap/StaticBody2D9" unique_id=1415532564]
-position = Vector2(-69.61243, -185.35422)
-scale = Vector2(0.99999964, 0.9999999)
+position = Vector2(-69.61243, -189.24823)
+scale = Vector2(0.9999996, 0.9999999)
 shape = SubResource("RectangleShape2D_3pgn3")
 
 [node name="StaticBody2D10" type="StaticBody2D" parent="Sprite2D/CollisionMap" unique_id=1165136841]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/CollisionMap/StaticBody2D10" unique_id=911767585]
-position = Vector2(69.61249, -184.57541)
-scale = Vector2(0.99999976, 0.9999999)
+position = Vector2(69.61249, -189.24823)
+scale = Vector2(0.99999964, 0.9999999)
 shape = SubResource("RectangleShape2D_hel03")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1835168917]
-visible = false
-position = Vector2(1873.0001, 334)
-scale = Vector2(0.684, 0.637)
-texture = ExtResource("5_hel03")
+[node name="TileMapLayer" type="TileMapLayer" parent="Sprite2D" unique_id=920863585]
+position = Vector2(-848.53394, -529.58356)
+scale = Vector2(1.4629896, 1.5575986)
+tile_map_data = PackedByteArray("AAAeABAAAwADAAMAAAAdABAAAwADAAMAAAAcAA4AAwADAAMAAAAgAA4AAwADAAMAAAAcABkAAwADAAMAAAAfABoAAwADAAMAAAAcABoAAwADAAMAAAArABkAAwADAAMAAAAtABoAAwADAAMAAAArABsAAwADAAMAAAApABkAAwADAAMAAAA=")
+tile_set = ExtResource("5_3pgn3")
+
+[connection signal="pressed" from="Sprite2D/Player/Camera2D/CanvasLayer/Button" to="Sprite2D/Player/Camera2D/CanvasLayer/Button" method="_on_pressed"]

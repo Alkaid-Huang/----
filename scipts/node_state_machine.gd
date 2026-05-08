@@ -46,3 +46,16 @@ func transition_to(node_state_name : String) -> void:
 	current_node_state = new_node_state
 	current_node_state_name = current_node_state.name.to_lower()
 	print("Current State: ", current_node_state_name)
+
+
+# 🆕 添加这两个方法，不要用 enabled 变量
+func pause_on() -> void:
+	# 0 = PROCESS_MODE_INHERIT (继承父节点)
+	# 1 = PROCESS_MODE_PAUSED (当游戏暂停时处理) 不适用
+	# 2 = PROCESS_MODE_ALWAYS (始终处理)
+	# 3 = PROCESS_MODE_DISABLED (从不处理)
+	process_mode = Node.PROCESS_MODE_DISABLED
+
+func pause_off() -> void:
+	# 恢复为继承父节点
+	process_mode = Node.PROCESS_MODE_INHERIT

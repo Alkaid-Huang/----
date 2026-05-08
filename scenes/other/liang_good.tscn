@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://btwo7nbxeuhrx"]
+
+[ext_resource type="Script" uid="uid://bxyebcseapm06" path="res://scenes/other/liang.gd" id="1_7sfs2"]
+[ext_resource type="Texture2D" uid="uid://cdmurg3eqr8cc" path="res://assets/images/第二关场景素材/正确房梁.png" id="2_8ge1o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3e8jb"]
+size = Vector2(74, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sfs2"]
+size = Vector2(65, 25)
+
+[node name="Liang_Good" type="CharacterBody2D" unique_id=736610646]
+script = ExtResource("1_7sfs2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1501413506]
+shape = SubResource("RectangleShape2D_3e8jb")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=863052642]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=810657894]
+shape = SubResource("RectangleShape2D_7sfs2")
+debug_color = Color(0.7680568, 0.3185412, 0.79160255, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=53965193]
+position = Vector2(0, -24)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_8ge1o")

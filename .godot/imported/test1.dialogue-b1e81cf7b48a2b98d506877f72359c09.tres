@@ -20,7 +20,7 @@ lines = {
 &"id": "1",
 &"next_id": "2",
 &"static_id": "",
-&"text": "主角：这是第二关我是你",
+&"text": "主角：你好，这里是下一关",
 &"type": "dialogue"
 },
 "2": {

@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://br32cw8qx725p"]
+
+[ext_resource type="Script" uid="uid://dw38p5k7vhj8f" path="res://scenes/mainscenes/level1/level_1.gd" id="1_cfjva"]
+[ext_resource type="Texture2D" uid="uid://psa8mex8425f" path="res://assets/测试/下载.jpg" id="2_0f3yk"]
+[ext_resource type="Texture2D" uid="uid://ou6jhnj6r4p7" path="res://assets/测试/blue.jpg" id="3_0f3yk"]
+[ext_resource type="Texture2D" uid="uid://shicoukflp7s" path="res://assets/测试/OIP-C.jpg" id="4_nfqjd"]
+[ext_resource type="Texture2D" uid="uid://0238rksjk8p" path="res://assets/测试/棕色.jpg" id="5_so7sr"]
+[ext_resource type="Texture2D" uid="uid://deh1o02nchwph" path="res://assets/测试/深蓝.jpg" id="6_2qg3m"]
+
+[node name="Level1" type="Node2D" unique_id=1187211809]
+script = ExtResource("1_cfjva")
+
+[node name="BackgroundImage" type="TextureRect" parent="." unique_id=446219707]
+offset_right = 1154.0
+offset_bottom = 648.0
+texture = ExtResource("2_0f3yk")
+stretch_mode = 6
+
+[node name="Question" type="Label" parent="." unique_id=1480397442]
+offset_left = 24.0
+offset_top = 40.0
+offset_right = 896.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "问题
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2039481880]
+anchors_preset = -1
+anchor_bottom = 0.5
+offset_top = 232.0
+offset_right = 927.0
+offset_bottom = 498.0
+grow_vertical = 2
+
+[node name="Choice1" type="TextureButton" parent="HBoxContainer" unique_id=1797291871]
+layout_mode = 2
+texture_normal = ExtResource("3_0f3yk")
+
+[node name="Choice2" type="TextureButton" parent="HBoxContainer" unique_id=1729445620]
+layout_mode = 2
+texture_normal = ExtResource("4_nfqjd")
+
+[node name="Choice3" type="TextureButton" parent="HBoxContainer" unique_id=1212374233]
+layout_mode = 2
+texture_normal = ExtResource("5_so7sr")
+
+[node name="Choice4" type="TextureButton" parent="HBoxContainer" unique_id=747139971]
+layout_mode = 2
+texture_normal = ExtResource("6_2qg3m")
+
+[node name="Panel" type="Panel" parent="." unique_id=516040537]
+offset_left = 920.0
+offset_right = 1153.0
+offset_bottom = 647.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=1942788924]
+position = Vector2(120.000084, 323.5)
+scale = Vector2(1.4285717, 3.5944443)
+texture = ExtResource("4_nfqjd")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1055435277]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 128.0
+offset_right = 224.0
+offset_bottom = 576.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "提示"
