@@ -1,0 +1,79 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_bx4lq"]
+
+[resource]
+script = ExtResource("1_bx4lq")
+using_states = PackedStringArray()
+cues = {
+"start": "1"
+}
+character_names = PackedStringArray("陈远")
+first_cue = "0"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": "cue"
+},
+"1": {
+&"character": "陈远",
+&"id": "1",
+&"next_id": "2",
+&"static_id": "",
+&"text": "七年了……终于又回到青石镇了。",
+&"type": "dialogue"
+},
+"2": {
+&"character": "陈远",
+&"id": "2",
+&"next_id": "3",
+&"static_id": "",
+&"text": "父亲在电话里说，老宅快塌了，让我回来看看。",
+&"type": "dialogue"
+},
+"3": {
+&"character": "陈远",
+&"id": "3",
+&"next_id": "4",
+&"static_id": "",
+&"text": "我本来不想来。但昨晚梦见了祖父。",
+&"type": "dialogue"
+},
+"4": {
+&"character": "陈远",
+&"id": "4",
+&"next_id": "5",
+&"static_id": "",
+&"text": "梦里他坐在院子里，手里拿着一块刨光的木头，抬头对我笑了笑。",
+&"type": "dialogue"
+},
+"5": {
+&"character": "陈远",
+&"id": "5",
+&"next_id": "6",
+&"static_id": "",
+&"text": "醒了之后，我订了最早的车票。",
+&"type": "dialogue"
+},
+"6": {
+&"id": "6",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"7": {
+&"id": "7",
+&"next_id": "8",
+&"type": ""
+},
+"8": {
+&"id": "8",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+}
+}
+metadata/dialogue_manager_version = "3.10.1"

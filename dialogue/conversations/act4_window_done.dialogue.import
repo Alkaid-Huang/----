@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cf5c8gqpo0dia"
+path="res://.godot/imported/act4_window_done.dialogue-6aa9908f617e3065e814c0867101bdc1.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/act4_window_done.dialogue"
+dest_files=["res://.godot/imported/act4_window_done.dialogue-6aa9908f617e3065e814c0867101bdc1.tres"]
+
+[params]
+
+defaults=true

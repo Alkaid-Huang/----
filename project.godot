@@ -8,9 +8,14 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="归园筑舍"
+run/main_scene="res://scenes/start/start.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
 [autoload]
@@ -18,6 +23,7 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 DialogueManager="*uid://c3rodes2l3gxb"
 KnowledgeManager="*uid://cvpfwwbsrrsq6"
 GameManager="*uid://b1n6rdmnf68ad"
+SceneManager="*uid://j20v4cg7v8m1"
 
 [editor_plugins]
 
@@ -57,7 +63,7 @@ interact={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/conversations/test1.dialogue", "res://dialogue/conversations/test2.dialogue", "res://get_ability.dialogue", "res://remind.dialogue", "res://level1_complete.dialogue", "res://dialogue/conversations/enter_level.dialogue", "res://dialogue/conversations/get_ability.dialogue", "res://dialogue/conversations/remind.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/conversations/test1.dialogue", "res://dialogue/conversations/test2.dialogue", "res://dialogue/conversations/enter_level.dialogue", "res://dialogue/conversations/get_ability.dialogue", "res://dialogue/conversations/remind.dialogue", "res://dialogue/conversations/act1_clear_done.dialogue", "res://dialogue/conversations/act1_meet_uncle.dialogue", "res://dialogue/conversations/act2_meet_lin.dialogue", "res://dialogue/conversations/act3_beam_success.dialogue", "res://dialogue/conversations/act4_window_done.dialogue", "res://dialogue/conversations/prologue.dialogue")
 
 [layer_names]
 

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dtmumjsfp75py"]
 
 [ext_resource type="Script" uid="uid://bxyebcseapm06" path="res://scenes/other/liang.gd" id="1_651s8"]
-[ext_resource type="Texture2D" uid="uid://bcjkncumvy6f6" path="res://assets/images/第二关场景素材/错误房梁_02.png" id="2_jqxly"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3e8jb"]
 size = Vector2(74, 34)
@@ -21,8 +20,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=810657894]
 shape = SubResource("RectangleShape2D_7sfs2")
-debug_color = Color(0.60105824, 0.5434508, 3.85046e-07, 0.41960785)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=881527309]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_jqxly")
+[node name="Sprite2D" type="ColorRect" parent="." unique_id=881527309]
+custom_minimum_size = Vector2(80, 24)
+color = Color(0.4, 0.2, 0.1, 1)

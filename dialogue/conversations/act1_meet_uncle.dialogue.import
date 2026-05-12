@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bxsq2ng80m5by"
+path="res://.godot/imported/act1_meet_uncle.dialogue-c6e84371bc993df7b6c9210aa3923aa0.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/act1_meet_uncle.dialogue"
+dest_files=["res://.godot/imported/act1_meet_uncle.dialogue-c6e84371bc993df7b6c9210aa3923aa0.tres"]
+
+[params]
+
+defaults=true

@@ -13,6 +13,7 @@ func _ready():
 		
 	#  监听全局信号
 	KnowledgeManager.list_refresh_needed.connect(_refresh_list)
+	item_list.item_selected.connect(_on_item_selected)
 	
 	_refresh_list()
 	

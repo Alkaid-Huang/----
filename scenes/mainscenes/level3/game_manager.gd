@@ -1,7 +1,7 @@
 extends Node
 
 @export var required_accuracy: float = 0.70
-@export var next_level: String = "res://levels/Level3.tscn"
+@export var next_level: String = "res://scenes/mainscenes/GameEnd.tscn"
 
 @onready var canvas = $"../DrawingLayer"
 @onready var pivot = $"../PaperGroup"
@@ -19,7 +19,13 @@ var img: Image
 const TOL = 15.0
 
 func _ready():
-	img = target.texture.get_image() if target.texture else null
+	print("[Level3] 窗花关卡初始化, required_accuracy=", required_accuracy, " next_level=", next_level)
+	if target is Sprite2D and target.texture:
+		img = target.texture.get_image()
+		print("[Level3] 目标纹理已加载, 尺寸=", img.get_width(), "x", img.get_height())
+	else:
+		img = null
+		print("[Level3] 目标纹理为空(ColorRect占位), 使用覆盖度验证")
 	_set_masks(false)
 	btn_unfold.disabled = true
 	lbl.text = "点击【折叠】开始剪裁"
@@ -33,28 +39,31 @@ func _on_fold():
 	btn_fold.disabled = true
 	btn_unfold.disabled = false
 	lbl.text = "在亮区沿纹样剪裁（支持多笔）"
+	print("[Level3] 进入绘制模式")
 
 func _on_unfold():
 	canvas.disable()
-	canvas.set_strokes_visible(false) # ✅ 隐藏原笔触，防止重叠
+	canvas.set_strokes_visible(false)
 	btn_unfold.disabled = true
 	lbl.text = "展开验证中..."
-	
+	print("[Level3] 展开验证, 点数=", canvas.get_points().size())
 	_spawn_symmetry(canvas.get_points())
-	
 	var acc = _validate(canvas.get_points())
 	bar.value = acc * 100
-	
+	print("[Level3] 验证精度=", acc)
 	if acc >= required_accuracy:
 		lbl.text = "窗花完成！精美绝伦！"
 		lbl.modulate = Color.GREEN
+		print("[Level3] 窗花通关! 跳转: ", next_level)
+		GameManager.level3_complete = true
+		KnowledgeManager.unlock_by_event("level3_complete")
 		await get_tree().create_timer(1.5).timeout
-		get_tree().change_scene_to_file(next_level)
+		SceneManager.change_scene(next_level, {"pattern": "fade", "speed": 2.0})
 	else:
 		lbl.text = "贴合度不足，请调整或重做 (需%d%%)" % int(required_accuracy*100)
 		lbl.modulate = Color.RED
 		btn_unfold.disabled = false
-		canvas.set_strokes_visible(true) # 失败允许继续补画
+		canvas.set_strokes_visible(true)
 
 func _on_reset():
 	canvas.clear()
@@ -67,72 +76,70 @@ func _on_reset():
 	lbl.modulate = Color.WHITE
 	btn_fold.disabled = false
 	btn_unfold.disabled = true
+	print("[Level3] 重置")
 
 func _spawn_symmetry(pts: PackedVector2Array):
 	for c in unfold_cont.get_children(): c.queue_free()
 	if pts.size() < 2: return
-	
-	var center = pivot.global_position # (576, 324)
-	
-	# ✅ 四个象限的镜像向量 (相对于中心点)
+	var center = pivot.global_position
 	var mirrors = [
-		Vector2(1, 1),   # 左上 (原图)
-		Vector2(-1, 1),  # 右上 (X轴翻转)
-		Vector2(1, -1),  # 左下 (Y轴翻转)
-		Vector2(-1, -1)  # 右下 (双轴翻转)
+		Vector2(1, 1),
+		Vector2(-1, 1),
+		Vector2(1, -1),
+		Vector2(-1, -1)
 	]
-	
 	for m in mirrors:
 		var line = Line2D.new()
 		line.default_color = Color.WHITE
 		line.width = 3.0
 		line.joint_mode = Line2D.LINE_JOINT_ROUND
-		
 		for pt in pts:
-			# 计算相对于中心的偏移，应用镜像后加入容器
 			var offset = (pt - center) * m
 			line.add_point(offset)
-			
 		unfold_cont.add_child(line)
-		# 展开动画
 		line.scale = Vector2(0.1, 0.1)
 		create_tween().tween_property(line, "scale", Vector2(1, 1), 0.4).set_ease(Tween.EASE_OUT)
 
 func _validate(pts: PackedVector2Array) -> float:
-	if img == null or pts.size() < 5: return 0.0
-	
+	if pts.size() < 5:
+		print("[Level3] 点数太少(", pts.size(), "), 返回0")
+		return 0.0
+	if img == null:
+		return _validate_grid_fallback(pts)
 	var valid = 0
-	
-	# ✅ Godot 4.x 正确方法：手动计算全局矩形
-	var local_rect = target.get_rect()  # 局部矩形（含 Offset）
-	var global_pos = target.global_position  # 全局位置
+	var local_rect = target.get_rect()
+	var global_pos = target.global_position
 	var global_rect = Rect2(global_pos + local_rect.position, local_rect.size)
-	
 	var img_w = img.get_width()
 	var img_h = img.get_height()
-	
-	# 计算实际显示缩放比例
 	var scale_x = global_rect.size.x / img_w
 	var scale_y = global_rect.size.y / img_h
-	
 	for pt in pts:
-		# 全局坐标 转 图片局部坐标
 		var rel_x = pt.x - global_rect.position.x
 		var rel_y = pt.y - global_rect.position.y
-		
 		var ix = int(rel_x / scale_x)
 		var iy = int(rel_y / scale_y)
-		
-		# 边界检查
 		if ix < 0 or ix >= img_w or iy < 0 or iy >= img_h:
 			continue
-			
-		# 颜色检测（红色纹样）
 		var c = img.get_pixel(ix, iy)
 		if c.r > 0.5 and c.g < 0.3 and c.b < 0.3:
 			valid += 1
-			
 	return float(valid) / pts.size()
+
+func _validate_grid_fallback(pts: PackedVector2Array) -> float:
+	var zone = Rect2(320, 68, 256, 256)
+	var grid = 12
+	var cell_w = zone.size.x / grid
+	var cell_h = zone.size.y / grid
+	var covered = {}
+	for pt in pts:
+		if zone.has_point(pt):
+			var cx = int((pt.x - zone.position.x) / cell_w)
+			var cy = int((pt.y - zone.position.y) / cell_h)
+			covered[Vector2(cx, cy)] = true
+	var coverage = float(covered.size()) / float(grid * grid)
+	print("[Level3] 网格覆盖度: ", covered.size(), "/", grid*grid, " = ", coverage)
+	return coverage
 
 func _near_red(x, y) -> bool:
 	var r = int(TOL)

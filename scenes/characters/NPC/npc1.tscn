@@ -1,12 +1,8 @@
 [gd_scene format=3 uid="uid://ceps4in61bcuo"]
 
 [ext_resource type="Script" uid="uid://bybw3ki01cbhy" path="res://scenes/characters/NPC/npc_1.gd" id="1_cmjea"]
-[ext_resource type="Resource" uid="uid://cgprod4c2v3je" path="res://get_ability.dialogue" id="2_glael"]
 [ext_resource type="PackedScene" uid="uid://beegya3dmoxfd" path="res://scenes/components/interactable_component.tscn" id="2_qxpor"]
-[ext_resource type="Resource" uid="uid://c2t1mrr0fl46" path="res://remind.dialogue" id="3_u0uah"]
 [ext_resource type="PackedScene" uid="uid://dc0je7q2ltugp" path="res://scenes/components/interactable_label_component.tscn" id="3_udwt8"]
-[ext_resource type="Resource" uid="uid://w6xo00uwq7gm" path="res://level1_complete.dialogue" id="4_u0uah"]
-[ext_resource type="Texture2D" uid="uid://cpr0mkyvy8c7j" path="res://assets/images/第二关场景素材/npc素材.png" id="5_u0uah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udwt8"]
 size = Vector2(20, 42)
@@ -16,14 +12,10 @@ radius = 31.257
 
 [node name="NPC1" type="CharacterBody2D" unique_id=798983459]
 script = ExtResource("1_cmjea")
-dialogue_get_ability = ExtResource("2_glael")
-dialogue_remind = ExtResource("3_u0uah")
-dialogue_enter_level = ExtResource("4_u0uah")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1118546324]
-position = Vector2(-9.536743e-07, 0)
-scale = Vector2(0.025, 0.024)
-texture = ExtResource("5_u0uah")
+[node name="Sprite2D" type="ColorRect" parent="." unique_id=1118546324]
+custom_minimum_size = Vector2(40, 60)
+color = Color(0.2, 0.6, 0.3, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1077975042]
 position = Vector2(5.04871e-29, 9.536743e-07)

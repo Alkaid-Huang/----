@@ -1,13 +1,8 @@
 [gd_scene format=3 uid="uid://djg3bhcq3pg52"]
 
 [ext_resource type="Script" uid="uid://bbe73p1qwswp4" path="res://scenes/mainscenes/main3/scene_main_3.gd" id="1_bi47j"]
-[ext_resource type="Texture2D" uid="uid://cpphu868v4mj7" path="res://assets/images/游戏主场景素材/主场景，没有树.jpg" id="2_he682"]
-[ext_resource type="Texture2D" uid="uid://d26nrt84fy6a5" path="res://assets/images/第二关场景素材/房梁屋子图片.png" id="3_ln5fe"]
 [ext_resource type="PackedScene" uid="uid://bqt1w502rudn6" path="res://scenes/characters/player/player.tscn" id="4_6e5k7"]
 [ext_resource type="PackedScene" uid="uid://dgymfo1u78iwk" path="res://scenes/characters/NPC/npc2.tscn" id="5_nrwkl"]
-[ext_resource type="Resource" uid="uid://b6u43xqebinqn" path="res://dialogue/conversations/get_ability.dialogue" id="6_dg6qo"]
-[ext_resource type="Resource" uid="uid://cxemvjrxayb4n" path="res://dialogue/conversations/enter_level.dialogue" id="7_hntt5"]
-[ext_resource type="Resource" uid="uid://cpksf74x3xq01" path="res://dialogue/conversations/remind.dialogue" id="8_qrr3j"]
 [ext_resource type="PackedScene" uid="uid://cytn6n2gs2igx" path="res://scenes/other/knowledge_ui.tscn" id="9_ih6po"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klic1"]
@@ -37,16 +32,14 @@ size = Vector2(308.69077, 59.18872)
 [node name="SceneMain3" type="Node2D" unique_id=1543794146]
 script = ExtResource("1_bi47j")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=921931146]
-position = Vector2(580, 340.00003)
-scale = Vector2(0.6835318, 0.6420139)
-texture = ExtResource("2_he682")
+[node name="Sprite2D" type="ColorRect" parent="." unique_id=921931146]
+custom_minimum_size = Vector2(1154, 648)
+color = Color(0.2, 0.22, 0.18, 1)
 
-[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D" unique_id=1506308023]
+[node name="Sprite2D3" type="ColorRect" parent="Sprite2D" unique_id=1506308023]
 visible = false
-position = Vector2(13.1669235, -352.01733)
-scale = Vector2(0.34, 0.362)
-texture = ExtResource("3_ln5fe")
+custom_minimum_size = Vector2(100, 80)
+color = Color(0.5, 0.35, 0.2, 1)
 
 [node name="Player" parent="Sprite2D" unique_id=1451378286 instance=ExtResource("4_6e5k7")]
 position = Vector2(-20.481812, -51.400787)
@@ -55,21 +48,11 @@ scale = Vector2(1.4629896, 1.5575986)
 [node name="Camera2D" type="Camera2D" parent="Sprite2D/Player" unique_id=1362894112]
 zoom = Vector2(2.5, 2.5)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Sprite2D/Player/Camera2D" unique_id=386449112]
-layer = 5
-
-[node name="Button" type="Button" parent="Sprite2D/Player/Camera2D/CanvasLayer" unique_id=134872299]
-offset_right = 8.0
-offset_bottom = 8.0
-mouse_filter = 1
-text = "按钮"
-
 [node name="NPC2" parent="Sprite2D" unique_id=798983459 instance=ExtResource("5_nrwkl")]
 position = Vector2(-153.61392, -109.03196)
 scale = Vector2(0.99999994, 0.99999994)
-dialogue_first_talk = ExtResource("6_dg6qo")
-dialogue_wood_selected = ExtResource("7_hntt5")
-dialogue_enter_level2_1 = ExtResource("8_qrr3j")
+dialogue_path = "res://dialogue/conversations/act4_window_done.dialogue"
+target_scene = "res://scenes/mainscenes/level3/window_flower_level.tscn"
 
 [node name="CollisionMap" type="Node2D" parent="Sprite2D" unique_id=1378495498]
 
@@ -131,5 +114,3 @@ shape = SubResource("RectangleShape2D_q3cri")
 
 [node name="KnowledgeUI" parent="." unique_id=130528436 instance=ExtResource("9_ih6po")]
 visible = false
-
-[connection signal="pressed" from="Sprite2D/Player/Camera2D/CanvasLayer/Button" to="Sprite2D/Player/Camera2D/CanvasLayer/Button" method="_on_pressed"]

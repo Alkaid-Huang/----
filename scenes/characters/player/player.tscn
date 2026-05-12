@@ -1,141 +1,20 @@
-[gd_scene format=3 uid="uid://bqt1w502rudn6"]
+[gd_scene load_steps=4 format=3 uid="uid://bqt1w502rudn6"]
 
-[ext_resource type="Texture2D" uid="uid://cjo1gryjqcfhm" path="res://assets/images/玩家素材/学生.png" id="1_hss88"]
 [ext_resource type="Script" uid="uid://bm2acmbqwv50x" path="res://scipts/node_state_machine.gd" id="2_hss88"]
 [ext_resource type="Script" uid="uid://68exfwryfddc" path="res://scenes/characters/player/idle_state.gd" id="3_qd3e3"]
 [ext_resource type="Script" uid="uid://cmjkopss3266d" path="res://scenes/characters/player/walk_state.gd" id="4_6avc5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qd3e3"]
-atlas = ExtResource("1_hss88")
-region = Rect2(32, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6avc5"]
-atlas = ExtResource("1_hss88")
-region = Rect2(0, 144, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mk55u"]
-atlas = ExtResource("1_hss88")
-region = Rect2(32, 144, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xuses"]
-atlas = ExtResource("1_hss88")
-region = Rect2(64, 144, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_42irl"]
-atlas = ExtResource("1_hss88")
-region = Rect2(0, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3xnwo"]
-atlas = ExtResource("1_hss88")
-region = Rect2(32, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_djydg"]
-atlas = ExtResource("1_hss88")
-region = Rect2(64, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bsn6e"]
-atlas = ExtResource("1_hss88")
-region = Rect2(64, 48, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_blysn"]
-atlas = ExtResource("1_hss88")
-region = Rect2(32, 48, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hv5x3"]
-atlas = ExtResource("1_hss88")
-region = Rect2(0, 48, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ykrpk"]
-atlas = ExtResource("1_hss88")
-region = Rect2(0, 96, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i1nod"]
-atlas = ExtResource("1_hss88")
-region = Rect2(32, 96, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4kqyw"]
-atlas = ExtResource("1_hss88")
-region = Rect2(64, 96, 32, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hss88"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qd3e3")
-}],
-"loop": true,
-"name": &"idle_front",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6avc5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mk55u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xuses")
-}],
-"loop": true,
-"name": &"walk_back",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_42irl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3xnwo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_djydg")
-}],
-"loop": true,
-"name": &"walk_front",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bsn6e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_blysn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hv5x3")
-}],
-"loop": true,
-"name": &"walk_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ykrpk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i1nod")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4kqyw")
-}],
-"loop": true,
-"name": &"walk_right",
-"speed": 5.0
-}]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_djydg"]
 radius = 14.035668
 
-[node name="Player" type="CharacterBody2D" unique_id=1451378286]
+[node name="Player" type="CharacterBody2D" unique_id=1451378286 groups=["player"]]
 collision_layer = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1907148253]
+[node name="AnimatedSprite2D" type="ColorRect" parent="." unique_id=1907148253]
 position = Vector2(-1, -4.000002)
 scale = Vector2(1.4375, 1.3541666)
-sprite_frames = SubResource("SpriteFrames_hss88")
-animation = &"idle_front"
-frame_progress = 0.9630567
+custom_minimum_size = Vector2(32, 48)
+color = Color(0.3, 0.5, 0.8, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1053383551]
 position = Vector2(0, 3)

@@ -8,7 +8,7 @@ using_states = PackedStringArray()
 cues = {
 "start": "1"
 }
-character_names = PackedStringArray("NPC")
+character_names = PackedStringArray("陈伯")
 first_cue = "0"
 lines = {
 "0": {
@@ -17,7 +17,7 @@ lines = {
 &"type": "cue"
 },
 "1": {
-&"character": "NPC",
+&"character": "陈伯",
 &"id": "1",
 &"next_id": "2",
 &"static_id": "",
@@ -33,6 +33,11 @@ lines = {
 },
 "3": {
 &"id": "3",
+&"next_id": "4",
+&"type": ""
+},
+"4": {
+&"id": "4",
 &"is_snippet": false,
 &"next_id": "end",
 &"next_id_after": "",

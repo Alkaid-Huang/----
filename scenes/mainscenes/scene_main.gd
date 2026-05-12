@@ -1,22 +1,29 @@
 extends Node
 
-@export var return_scene_path: String = "res://scenes/mainscenes/scene_main_2.tscn"
-
 func _ready():
-	print("🏆[Level2] 关卡加载")
+	print("[SceneMain] 场景加载完成")
+	_fix_background()
 
-func on_level_complete():
-	print("🏆[Level2] ========== 通关结算 ==========")
-	
-	# 更新状态
-	GameManager.level2_complete = true
-	print("✅ [Level2] level2_complete = true")
-	
-	# 解锁知识
-	if KnowledgeManager:
-		KnowledgeManager.unlock_by_event("level2_complete")
-	
-	# 返回
-	print("🚀 [Level2] 返回工坊")
-	await get_tree().create_timer(1.5).timeout
-	get_tree().change_scene_to_file(return_scene_path)
+func _fix_background():
+	var bg = get_node_or_null("Sprite2D")
+	if not bg or not bg is ColorRect:
+		return
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.name = "BGLayer"
+	canvas_layer.layer = -100
+	add_child(canvas_layer)
+	var fixed_bg = ColorRect.new()
+	fixed_bg.name = "FixedBG"
+	fixed_bg.color = bg.color
+	fixed_bg.anchor_right = 1.0
+	fixed_bg.anchor_bottom = 1.0
+	fixed_bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	canvas_layer.add_child(fixed_bg)
+	var world = Node2D.new()
+	world.name = "World"
+	add_child(world)
+	var children = bg.get_children()
+	for child in children:
+		child.reparent(world)
+	bg.queue_free()
+	print("[SceneMain] 背景已固定到CanvasLayer, 游戏对象已移至World节点")

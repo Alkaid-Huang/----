@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bbn2wi256fcc4" path="res://scenes/mainscenes/level2/level_2_beam_installation.gd" id="1_37vrr"]
 [ext_resource type="PackedScene" uid="uid://btwo7nbxeuhrx" path="res://scenes/other/liang_good.tscn" id="2_byhhs"]
 [ext_resource type="PackedScene" uid="uid://dtmumjsfp75py" path="res://scenes/other/liang_bad.tscn" id="3_qc7w0"]
-[ext_resource type="Texture2D" uid="uid://5vs7eqkroycv" path="res://assets/images/第二关场景素材/上梁场景AI绘图提示词 (1).png" id="4_8ejxw"]
 [ext_resource type="Script" uid="uid://cw5si8deyvoe1" path="res://scenes/mainscenes/level2/target_zone.gd" id="5_qc7w0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2vle3"]
@@ -14,19 +13,14 @@ script = ExtResource("1_37vrr")
 good_beam_scene = ExtResource("2_byhhs")
 bad_beam_scene = ExtResource("3_qc7w0")
 
-[node name="Background" type="TextureRect" parent="." unique_id=327818068]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+[node name="Background" type="ColorRect" parent="." unique_id=327818068]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -96.0
-offset_top = -40.0
-offset_right = 1176.0
-offset_bottom = 656.0
-grow_horizontal = 0
-grow_vertical = 0
-texture = ExtResource("4_8ejxw")
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15, 0.18, 0.2, 1)
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1679479407]
 position = Vector2(520, 16)
@@ -76,4 +70,4 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[connection signal="pressed" from="UI/Button_Confirm" to="." method="_on_confirm_button_pressed"]
+

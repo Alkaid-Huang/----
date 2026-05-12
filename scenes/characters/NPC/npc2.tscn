@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dgymfo1u78iwk"]
 
 [ext_resource type="Script" uid="uid://osxxtdc0ju4" path="res://scenes/characters/NPC/npc_2.gd" id="1_f2iwl"]
-[ext_resource type="Texture2D" uid="uid://cpr0mkyvy8c7j" path="res://assets/images/第二关场景素材/npc素材.png" id="3_euka3"]
 [ext_resource type="PackedScene" uid="uid://beegya3dmoxfd" path="res://scenes/components/interactable_component.tscn" id="6_gv7oi"]
 [ext_resource type="PackedScene" uid="uid://dc0je7q2ltugp" path="res://scenes/components/interactable_label_component.tscn" id="7_ptovg"]
 
@@ -13,12 +12,12 @@ radius = 31.257
 
 [node name="NPC2" type="CharacterBody2D" unique_id=798983459]
 script = ExtResource("1_f2iwl")
-level2_1_scene_path = "res://scenes/mainscenes/level2/level_2_beam_installation.tscn"
+dialogue = null
+target_scene = "res://scenes/mainscenes/level2/level_2_beam_installation.tscn"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1118546324]
-position = Vector2(-9.536743e-07, 0)
-scale = Vector2(0.025, 0.023)
-texture = ExtResource("3_euka3")
+[node name="Sprite2D" type="ColorRect" parent="." unique_id=1118546324]
+custom_minimum_size = Vector2(40, 60)
+color = Color(0.3, 0.5, 0.7, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1077975042]
 position = Vector2(5.04871e-29, 9.536743e-07)

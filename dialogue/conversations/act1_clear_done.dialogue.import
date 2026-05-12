@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bh1jybw34k1dv"
+path="res://.godot/imported/act1_clear_done.dialogue-54b64c349c2651285a48cd3e4e5bc657.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/act1_clear_done.dialogue"
+dest_files=["res://.godot/imported/act1_clear_done.dialogue-54b64c349c2651285a48cd3e4e5bc657.tres"]
+
+[params]
+
+defaults=true

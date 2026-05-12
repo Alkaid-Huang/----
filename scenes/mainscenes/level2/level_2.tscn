@@ -2,22 +2,24 @@
 
 [ext_resource type="Script" uid="uid://7p2bbyfbd8oi" path="res://scenes/mainscenes/level2/level_2.gd" id="1_mms31"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g6c2n"]
-
 [node name="Level2" type="Node2D" unique_id=1187211809]
 script = ExtResource("1_mms31")
 
-[node name="BackgroundImage" type="TextureRect" parent="." unique_id=446219707]
-offset_right = 1154.0
-offset_bottom = 648.0
-stretch_mode = 6
+[node name="BackgroundImage" type="ColorRect" parent="." unique_id=446219707]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2, 0.15, 0.1, 1)
 
 [node name="Question" type="Label" parent="." unique_id=1480397442]
 offset_left = 24.0
 offset_top = 40.0
 offset_right = 896.0
 offset_bottom = 152.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.95, 0.92, 0.85, 1)
 text = "问题
 "
 horizontal_alignment = 1
@@ -32,7 +34,7 @@ grow_vertical = 2
 
 [node name="Choice1" type="TextureButton" parent="HBoxContainer" unique_id=1797291871]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_g6c2n")
+custom_minimum_size = Vector2(140, 100)
 
 [node name="Choice2" type="TextureButton" parent="HBoxContainer" unique_id=1729445620]
 layout_mode = 2

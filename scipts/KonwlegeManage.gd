@@ -4,9 +4,10 @@ signal list_refresh_needed
 
 # 知识数据（只读常量）
 const CARD_DATA := [
-	{"id": 0, "tag": "剪纸历史", "title": "剪纸起源", "desc": "中国剪纸最早可追溯至汉代...", "content": "详细内容...", "date": "2025-01-10", "level": "基础"},
-	{"id": 1, "tag": "工艺原理", "title": "折叠对称", "desc": "传统窗花利用轴对称原理...", "content": "详细内容...", "date": "2025-01-12", "level": "核心"},
-	{"id": 2, "tag": "文化寓意", "title": "红色寓意", "desc": "窗花多用红纸，象征喜庆...", "content": "详细内容...", "date": "2025-01-15", "level": "基础"}
+	{"id": 0, "tag": "榫卯工艺", "title": "榫卯起源", "desc": "中国传统榫卯结构最早可追溯至河姆渡文化时期，是木构建筑的精髓。", "content": "榫卯是中国传统建筑、家具及其他器械的主要结构方式，是在两个构件上采用凹凸部位相结合的一种连接方式。凸出部分叫榫（或榫头）；凹进部分叫卯（或榫眼、榫槽）。其特点是在物件上不使用钉子，利用卯榫加固物件，体现出中国古老的文化和智慧。", "date": "2025-01-10", "level": "基础"},
+	{"id": 1, "tag": "梁架结构", "title": "斗拱技艺", "desc": "斗拱是中国传统建筑中独特的构件，兼具结构与装饰功能。", "content": "斗拱是由斗形木块和弓形肘木相互穿插、层层叠加而成的构件。它位于立柱和横梁交接处，起到支撑挑檐、传递荷载的作用，同时具有极强的抗震性能。斗拱结构复杂、造型优美，是中国古代建筑艺术的杰出代表。", "date": "2025-01-12", "level": "核心"},
+	{"id": 2, "tag": "剪纸艺术", "title": "窗花工艺", "desc": "窗花是中国传统剪纸艺术的一种，多用于春节装饰。", "content": "窗花是有各种颜色、各种图案的民间剪纸艺术品。这种民间风俗已有上千年的历史。山西民间的剪纸，尤其是窗花剪纸充满乡土气息，其风格淳朴、粗犷、色彩鲜明。窗花不仅烘托了喜庆的节日气氛，还能为人们带来美的享受做到集装饰性、欣赏性和实用性于一体。", "date": "2025-01-15", "level": "基础"},
+	{"id": 3, "tag": "古建修复", "title": "修缮之道", "desc": "传统建筑修复遵循'不改变文物原状'的原则，力求修旧如旧。", "content": "古建修复是一项综合性的工作，需要对历史建筑进行科学的勘察、研究、设计和施工。修复过程中要尊重历史原貌，尽可能使用传统材料和工艺，同时运用现代科技手段确保修复质量。每一次修缮都是对历史的致敬，也是对文化的传承。", "date": "2025-01-18", "level": "核心"}
 ]
 
 # 解锁状态（运行时变量）
@@ -31,26 +32,6 @@ func _ensure_status_array():
 		# ===========================================
 	else:
 		print("📘[管理器] 状态数组长度正常")
-
-func unlock_card(index: int) -> bool:
-	print("📘[管理器] 收到解锁请求 -> 索引: ", index)
-	
-	if index < 0 or index >= CARD_DATA.size():
-		print("🔴[管理器] 错误：索引越界！")
-		return false
-		
-	if unlocked_status[index]:
-		print("⚠️[管理器] 提示：卡片 '", CARD_DATA[index].title, "' 已解锁过")
-		return false
-		
-	# ✅ 执行解锁
-	unlocked_status[index] = true
-	print("[管理器] 解锁成功 -> ", CARD_DATA[index].title)
-	
-	_save_data()
-	card_unlocked.emit(index)
-	list_refresh_needed.emit()
-	return true
 
 func is_unlocked(index: int) -> bool:
 	return unlocked_status[index] if index >= 0 and index < unlocked_status.size() else false
@@ -85,8 +66,9 @@ func _load_data():
 # 事件名 -> 卡片索引 映射表
 const EVENT_TO_CARD := {
 	"grass_cut": 0,          # 拔草事件解锁第0张
-	"level1_clear": 1,       # 通关第一关解锁第1张
-	"meet_npc_elder": 2      # 遇见NPC老人解锁第2张
+	"level1_complete": 1,    # 通关第一关解锁第1张
+	"level2_complete": 2,    # 通关第二关解锁第2张
+	"level3_complete": 3     # 通关第三关解锁第3张
 }
 
 func unlock_by_event(event_name: String) -> void:
@@ -101,7 +83,6 @@ func unlock_by_event(event_name: String) -> void:
 		print("⚠️[管理器] 卡片 ", card_index, " 已解锁，跳过")
 		return
 		
-	# 执行解锁
 	unlocked_status[card_index] = true
 	_save_data()
 	
@@ -109,3 +90,11 @@ func unlock_by_event(event_name: String) -> void:
 	print("🎉[管理器] 解锁成功 -> ", card_title)
 	card_unlocked.emit(card_index)
 	list_refresh_needed.emit()
+
+func reset_all():
+	unlocked_status = []
+	for i in range(CARD_DATA.size()):
+		unlocked_status.append(false)
+	_save_data()
+	list_refresh_needed.emit()
+	print("📘[管理器] 知识卡片已全部重置")

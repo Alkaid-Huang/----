@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cfxf7xap2nqsm"
+path="res://.godot/imported/act2_meet_lin.dialogue-e50de869490533ecea85fd82baab1a91.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/act2_meet_lin.dialogue"
+dest_files=["res://.godot/imported/act2_meet_lin.dialogue-e50de869490533ecea85fd82baab1a91.tres"]
+
+[params]
+
+defaults=true

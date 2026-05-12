@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvuxl544k3x7w"]
+
+[ext_resource type="Script" uid="uid://cpe50x8vwrojc" path="res://scenes/mainscenes/GameEnd.gd" id="2"]
+
+[sub_resource type="StyleBoxFlat" id="3"]
+bg_color = Color(0.12, 0.1, 0.15, 1)
+
+[sub_resource type="StyleBoxFlat" id="4"]
+bg_color = Color(0.2, 0.25, 0.2, 0.9)
+border_width_left = 2
+border_width_right = 2
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.8, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="5"]
+bg_color = Color(0.35, 0.45, 0.35, 0.9)
+border_width_left = 2
+border_width_right = 2
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.9, 0.8)
+
+[node name="GameEnd" type="Node2D"]
+script = ExtResource("2")
+
+[node name="Background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+color = Color(0.08, 0.06, 0.04, 1)
+
+[node name="BackgroundOverlay" type="ColorRect" parent="."]
+rect_size = Vector2(1152, 648)
+color = Color(0, 0, 0, 0.3)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource("3")
+
+[node name="TitleLabel" type="Label" parent="UI/Panel"]
+anchor_center_x = 0.5
+anchor_top = 0.0
+offset_top = 80.0
+offset_min_x = -200.0
+offset_max_x = 200.0
+text = ""
+horizontal_alignment = 2
+vertical_alignment = 1
+custom_colors/font_color = Color(0.9, 0.8, 0.6)
+font_size = 42
+
+[node name="ContentLabel" type="RichTextLabel" parent="UI/Panel"]
+anchor_center_x = 0.5
+anchor_top = 0.0
+offset_top = 150.0
+offset_min_x = -450.0
+offset_max_x = 450.0
+offset_min_y = -150.0
+offset_max_y = 200.0
+custom_styles/panel = SubResource("4")
+custom_colors/font_color = Color(0.95, 0.95, 0.88)
+font_size = 18
+text = ""
+bbcode_enabled = true
+fit_content = true
+
+[node name="Buttons" type="HBoxContainer" parent="UI/Panel"]
+anchor_center_x = 0.5
+anchor_bottom = 0.0
+offset_bottom = 80.0
+offset_min_x = -200.0
+offset_max_x = 200.0
+alignment = 1
+spacing = 40
+
+[node name="RestartButton" type="Button" parent="UI/Panel/Buttons"]
+size = Vector2(150, 50)
+text = "重新开始"
+custom_styles/normal = SubResource("4")
+custom_styles/hover = SubResource("5")
+custom_colors/font_color = Color(0.95, 0.95, 0.9)
+font_size = 20
+
+[node name="QuitButton" type="Button" parent="UI/Panel/Buttons"]
+size = Vector2(150, 50)
+text = "退出游戏"
+custom_styles/normal = SubResource("4")
+custom_styles/hover = SubResource("5")
+custom_colors/font_color = Color(0.95, 0.95, 0.9)
+font_size = 20
+[connection signal="pressed" from="UI/Panel/Buttons/RestartButton" to="." method="_on_restart"]
+[connection signal="pressed" from="UI/Panel/Buttons/QuitButton" to="." method="_on_quit"]

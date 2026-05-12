@@ -17,7 +17,4 @@ static func movement_input() -> Vector2:
 	return direction
 
 static func is_movement_input() -> bool:
-	if direction == Vector2.ZERO:
-		return false
-	else:
-		return true
+	return direction != Vector2.ZERO

@@ -1,118 +1,95 @@
-[gd_resource type="Theme" format=3 uid="uid://i068x2x7sj30"]
+[gd_resource type="Theme" format=3]
 
-[ext_resource type="Texture2D" uid="uid://b3dnaqrksdo4o" path="res://assets/othergame/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_wg6cg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(0.15, 0.12, 0.1, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.5, 0.35, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wg6cg"]
-load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-eb5d42d303074e6a3f5b83edb60cbdb7.ctex"
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.25, 0.2, 0.15, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.7, 0.5, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_amrph"]
-atlas = SubResource("CompressedTexture2D_wg6cg")
-region = Rect2(59, 11, 26, 26)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+bg_color = Color(0.35, 0.28, 0.18, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9, 0.8, 0.6, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5bppn"]
-texture = SubResource("AtlasTexture_amrph")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-region_rect = Rect2(0, 0, 26, 26)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_disabled"]
+bg_color = Color(0.1, 0.08, 0.06, 0.8)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.35, 0.25, 0.5)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iq520"]
-load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-eb5d42d303074e6a3f5b83edb60cbdb7.ctex"
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_focus"]
+bg_color = Color(0.2, 0.16, 0.12, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7, 0.6, 0.4, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k8lni"]
-atlas = SubResource("CompressedTexture2D_iq520")
-region = Rect2(59, 107, 26, 26)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_31dqc"]
-texture = SubResource("AtlasTexture_k8lni")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-region_rect = Rect2(0, 0, 26, 26)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_21gvu"]
-load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-eb5d42d303074e6a3f5b83edb60cbdb7.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_auudg"]
-atlas = SubResource("CompressedTexture2D_21gvu")
-region = Rect2(59, 59, 26, 26)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rofpc"]
-texture = SubResource("AtlasTexture_auudg")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-region_rect = Rect2(0, 0, 26, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kqskg"]
-atlas = ExtResource("1_wg6cg")
-region = Rect2(59, 155, 26, 26)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_chmsu"]
-texture = SubResource("AtlasTexture_kqskg")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-region_rect = Rect2(0, 0, 26, 26)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r76ny"]
-load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-eb5d42d303074e6a3f5b83edb60cbdb7.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_miluc"]
-atlas = SubResource("CompressedTexture2D_r76ny")
-region = Rect2(59, 107, 26, 26)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_le22p"]
-texture = SubResource("AtlasTexture_miluc")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-region_rect = Rect2(0, 0, 26, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wg6cg"]
-atlas = ExtResource("1_wg6cg")
-region = Rect2(259, 180, 90, 25)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_amrph"]
-texture = SubResource("AtlasTexture_wg6cg")
-texture_margin_left = 3.0
-texture_margin_top = 3.0
-texture_margin_right = 3.0
-texture_margin_bottom = 3.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cicg8"]
-atlas = ExtResource("1_wg6cg")
-region = Rect2(259, 180, 90, 25)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7p3kp"]
-texture = SubResource("AtlasTexture_cicg8")
-texture_margin_left = 3.0
-texture_margin_top = 3.0
-texture_margin_right = 3.0
-texture_margin_bottom = 3.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.12, 0.1, 0.08, 0.95)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.55, 0.45, 0.3, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [resource]
-Button/styles/disabled = SubResource("StyleBoxTexture_5bppn")
-Button/styles/focus = SubResource("StyleBoxTexture_31dqc")
-Button/styles/hover = SubResource("StyleBoxTexture_rofpc")
-Button/styles/normal = SubResource("StyleBoxTexture_chmsu")
-Button/styles/pressed = SubResource("StyleBoxTexture_le22p")
+Button/colors/font_color = Color(0.95, 0.9, 0.8, 1)
+Button/colors/font_hover_color = Color(1, 0.95, 0.85, 1)
+Button/styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
+Button/styles/focus = SubResource("StyleBoxFlat_btn_focus")
+Button/styles/hover = SubResource("StyleBoxFlat_btn_hover")
+Button/styles/normal = SubResource("StyleBoxFlat_btn_normal")
+Button/styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
 CharacterNameText/base_type = &"RichTextLabel"
 CharacterNameText/font_sizes/bold_font_size = 16
-CharacterNameText/font_sizes/bold_italics_font_size = 16
-CharacterNameText/font_sizes/italics_font_size = 16
-CharacterNameText/font_sizes/mono_font_size = 16
 CharacterNameText/font_sizes/normal_font_size = 18
+CharacterNameText/colors/default_color = Color(0.9, 0.8, 0.6, 1)
 DialogueText/base_type = &"RichTextLabel"
 DialogueText/font_sizes/normal_font_size = 16
+DialogueText/colors/default_color = Color(0.95, 0.92, 0.85, 1)
 MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 10
 MarginContainer/constants/margin_right = 10
 MarginContainer/constants/margin_top = 10
-Panel/styles/panel = SubResource("StyleBoxTexture_amrph")
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_7p3kp")
+Panel/styles/panel = SubResource("StyleBoxFlat_panel")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_panel")

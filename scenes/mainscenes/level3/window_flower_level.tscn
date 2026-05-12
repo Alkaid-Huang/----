@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://wchaenm05s8o"]
 
-[ext_resource type="Texture2D" uid="uid://dt5vdjuo1ypv1" path="res://assets/images/第三关场景素材/窗花_02.png" id="1_5ydww"]
-[ext_resource type="Texture2D" uid="uid://dyektfxeh4vnn" path="res://assets/测试/red.jpg" id="1_py5c4"]
 [ext_resource type="Script" uid="uid://basbaje33i4vl" path="res://scenes/mainscenes/level3/drawing_canvas.gd" id="1_upxwj"]
 [ext_resource type="Script" uid="uid://b7upv4hb6020m" path="res://scenes/mainscenes/level3/game_manager.gd" id="2_5ydww"]
 
@@ -10,10 +8,9 @@
 [node name="PaperGroup" type="Node2D" parent="." unique_id=1518678428]
 position = Vector2(576, 324)
 
-[node name="PaperBg" type="Sprite2D" parent="PaperGroup" unique_id=857476775]
-position = Vector2(256, 260)
-texture = ExtResource("1_py5c4")
-offset = Vector2(-256, -256)
+[node name="PaperBg" type="ColorRect" parent="PaperGroup" unique_id=857476775]
+custom_minimum_size = Vector2(512, 512)
+color = Color(0.95, 0.93, 0.88, 1)
 
 [node name="QuarterMask" type="Node2D" parent="PaperGroup" unique_id=1399884059]
 
@@ -22,7 +19,7 @@ offset_top = -252.0
 offset_right = 256.0
 offset_bottom = 260.0
 mouse_filter = 2
-color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+color = Color(0.01, 0.01, 0.01, 1)
 
 [node name="MaskBottom" type="ColorRect" parent="PaperGroup/QuarterMask" unique_id=424619927]
 offset_left = -256.0
@@ -30,10 +27,11 @@ offset_top = 4.0
 offset_right = 256.0
 offset_bottom = 260.0
 mouse_filter = 2
-color = Color(0.05805995, 0.05805995, 0.05805995, 1)
+color = Color(0.06, 0.06, 0.06, 1)
 
-[node name="TargetQuarter" type="Sprite2D" parent="PaperGroup" unique_id=767264964]
-texture = ExtResource("1_5ydww")
+[node name="TargetQuarter" type="ColorRect" parent="PaperGroup" unique_id=767264964]
+custom_minimum_size = Vector2(256, 256)
+color = Color(0.9, 0.1, 0.1, 1)
 
 [node name="CutLine" type="Line2D" parent="." unique_id=1097818649]
 
