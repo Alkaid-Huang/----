@@ -98,7 +98,7 @@ func _show_completion_dialogue() -> void:
 		return
 	DialogueManager.show_dialogue_balloon(dialogue_res, "start")
 	var finished = false
-	var on_ended = func():
+	var on_ended = func(_resource):
 		finished = true
 	DialogueManager.dialogue_ended.connect(on_ended, CONNECT_ONE_SHOT)
 	while not finished:

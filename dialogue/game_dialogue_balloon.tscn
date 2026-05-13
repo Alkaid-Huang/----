@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://db26iyoakm1fi" path="res://dialogue/game_dialogue_balloon.gd" id="1_sjhsj"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/nodes/dialogue_label/dialogue_label.tscn" id="2_cindb"]
-[ext_resource type="Theme" uid="uid://i068x2x7sj30" path="res://dialogue/conversations/dialogue_balloon_theme.tres" id="2_xkmgq"]
+[ext_resource type="Theme" path="res://dialogue/conversations/dialogue_balloon_theme.tres" id="2_xkmgq"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/nodes/responses_menu/dialogue_responses_menu.gd" id="3_aimjp"]
 
 [sub_resource type="Animation" id="Animation_nlsx6"]

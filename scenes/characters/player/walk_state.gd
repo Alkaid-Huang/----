@@ -2,7 +2,8 @@ extends NodeState
 
 @export var player: CharacterBody2D
 @export var animated_sprite_2d: Control
-@export var speed: int = 50
+@export var speed: int = 100
+
 
 func _on_physics_process(_delta : float) -> void:
 	var direction = GameInputEvents.movement_input()

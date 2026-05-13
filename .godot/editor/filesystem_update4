@@ -1,0 +1,5 @@
+res://scenes/mainscenes/main2/scene_main_2.tscn
+res://dialogue/conversations/dialogue_balloon_theme.tres
+res://scenes/mainscenes/level2/level_2_beam_installation.gd
+res://scenes/mainscenes/level2/level_2.gd
+res://scenes/mainscenes/main2/WoodInteract.gd

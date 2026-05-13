@@ -19,11 +19,7 @@ func _fix_background():
 	fixed_bg.anchor_bottom = 1.0
 	fixed_bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	canvas_layer.add_child(fixed_bg)
-	var world = Node2D.new()
-	world.name = "World"
-	add_child(world)
-	var children = bg.get_children()
-	for child in children:
-		child.reparent(world)
-	bg.queue_free()
-	print("[SceneMain] 背景已固定到CanvasLayer, 游戏对象已移至World节点")
+	bg.color = Color(0, 0, 0, 0)
+	bg.clip_contents = false
+	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	print("[SceneMain] 背景已固定到CanvasLayer")

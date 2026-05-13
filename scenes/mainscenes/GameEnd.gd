@@ -1,8 +1,8 @@
-extends Node2D
+extends Control
 
-@onready var title_label: Label = $UI/Panel/TitleLabel
-@onready var content_label: RichTextLabel = $UI/Panel/ContentLabel
-@onready var buttons: HBoxContainer = $UI/Panel/Buttons
+@onready var title_label: Label = $Panel/VBox/TitleLabel
+@onready var content_label: RichTextLabel = $Panel/VBox/ContentLabel
+@onready var buttons: HBoxContainer = $Panel/VBox/Buttons
 
 var end_lines: Array[String] = [
 	"我给父亲打了电话。我说，老宅不卖了。",

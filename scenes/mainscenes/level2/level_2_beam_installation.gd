@@ -140,7 +140,7 @@ func _play_dialogue_and_wait() -> void:
 func _wait_for_dialogue_safe(timeout_seconds: float) -> void:
 	var finished = false
 	var start_time = Time.get_ticks_msec()
-	var on_ended = func():
+	var on_ended = func(_resource):
 		finished = true
 	DialogueManager.dialogue_ended.connect(on_ended, CONNECT_ONE_SHOT)
 	while not finished:

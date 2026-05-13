@@ -26,7 +26,7 @@ func _on_body_exited(body):
 
 func _unhandled_input(event):
 	if player_nearby and not is_selected:
-		if event.is_action_pressed("interact") or event.is_action_pressed("show_dialogue"):
+		if event.is_action_pressed("interact"):
 			print("[Wood] 检测到交互按键")
 			await _select_wood()
 

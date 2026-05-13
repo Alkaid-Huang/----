@@ -27,7 +27,7 @@ SceneManager="*uid://j20v4cg7v8m1"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/godot_mcp/plugin.cfg", "res://addons/scene_manager/plugin.cfg")
 
 [global_group]
 

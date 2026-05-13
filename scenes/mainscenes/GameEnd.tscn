@@ -1,94 +1,130 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvuxl544k3x7w"]
+[gd_scene format=3 uid="uid://bvuxl544k3x7w"]
 
-[ext_resource type="Script" uid="uid://cpe50x8vwrojc" path="res://scenes/mainscenes/GameEnd.gd" id="2"]
+[ext_resource type="Script" uid="uid://cpe50x8vwrojc" path="res://scenes/mainscenes/GameEnd.gd" id="1"]
 
-[sub_resource type="StyleBoxFlat" id="3"]
-bg_color = Color(0.12, 0.1, 0.15, 1)
+[sub_resource type="StyleBoxFlat" id="panel_bg"]
+bg_color = Color(0.08, 0.06, 0.04, 1)
 
-[sub_resource type="StyleBoxFlat" id="4"]
-bg_color = Color(0.2, 0.25, 0.2, 0.9)
+[sub_resource type="StyleBoxFlat" id="btn_normal"]
+bg_color = Color(0.15, 0.12, 0.1, 0.95)
 border_width_left = 2
-border_width_right = 2
 border_width_top = 2
+border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.6, 0.8, 0.6)
+border_color = Color(0.6, 0.5, 0.35, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id="5"]
-bg_color = Color(0.35, 0.45, 0.35, 0.9)
+[sub_resource type="StyleBoxFlat" id="btn_hover"]
+bg_color = Color(0.25, 0.2, 0.12, 0.95)
 border_width_left = 2
-border_width_right = 2
 border_width_top = 2
+border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.8, 0.9, 0.8)
+border_color = Color(0.8, 0.7, 0.5, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
-[node name="GameEnd" type="Node2D"]
-script = ExtResource("2")
+[sub_resource type="StyleBoxFlat" id="content_bg"]
+bg_color = Color(0.12, 0.1, 0.08, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5, 0.4, 0.3, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
-[node name="Background" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(1152, 648)
-color = Color(0.08, 0.06, 0.04, 1)
-
-[node name="BackgroundOverlay" type="ColorRect" parent="."]
-rect_size = Vector2(1152, 648)
-color = Color(0, 0, 0, 0.3)
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="Panel" type="Panel" parent="UI"]
+[node name="GameEnd" type="Control" node_paths=PackedStringArray("title_label", "content_label", "buttons")]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource("3")
+script = ExtResource("1")
+title_label = NodePath("Panel/VBox/TitleLabel")
+content_label = NodePath("Panel/VBox/ContentLabel")
+buttons = NodePath("Panel/VBox/Buttons")
 
-[node name="TitleLabel" type="Label" parent="UI/Panel"]
-anchor_center_x = 0.5
-anchor_top = 0.0
-offset_top = 80.0
-offset_min_x = -200.0
-offset_max_x = 200.0
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource("panel_bg")
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SpacerTop" type="Control" parent="Panel/VBox"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
 text = ""
-horizontal_alignment = 2
+horizontal_alignment = 1
 vertical_alignment = 1
-custom_colors/font_color = Color(0.9, 0.8, 0.6)
+custom_colors/font_color = Color(0.9, 0.8, 0.6, 1)
 font_size = 42
 
-[node name="ContentLabel" type="RichTextLabel" parent="UI/Panel"]
-anchor_center_x = 0.5
-anchor_top = 0.0
-offset_top = 150.0
-offset_min_x = -450.0
-offset_max_x = 450.0
-offset_min_y = -150.0
-offset_max_y = 200.0
-custom_styles/panel = SubResource("4")
-custom_colors/font_color = Color(0.95, 0.95, 0.88)
-font_size = 18
-text = ""
+[node name="SpacerTitle" type="Control" parent="Panel/VBox"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="ContentLabel" type="RichTextLabel" parent="Panel/VBox"]
+custom_minimum_size = Vector2(700, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/normal = SubResource("content_bg")
 bbcode_enabled = true
 fit_content = true
+scroll_active = false
 
-[node name="Buttons" type="HBoxContainer" parent="UI/Panel"]
-anchor_center_x = 0.5
-anchor_bottom = 0.0
-offset_bottom = 80.0
-offset_min_x = -200.0
-offset_max_x = 200.0
+[node name="SpacerContent" type="Control" parent="Panel/VBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
 alignment = 1
 spacing = 40
 
-[node name="RestartButton" type="Button" parent="UI/Panel/Buttons"]
-size = Vector2(150, 50)
+[node name="RestartButton" type="Button" parent="Panel/VBox/Buttons"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.9, 0.8, 1)
+theme_override_colors/font_hover_color = Color(1, 0.95, 0.85, 1)
+theme_override_font_sizes/font_size = 20
+custom_styles/normal = SubResource("btn_normal")
+custom_styles/hover = SubResource("btn_hover")
 text = "重新开始"
-custom_styles/normal = SubResource("4")
-custom_styles/hover = SubResource("5")
-custom_colors/font_color = Color(0.95, 0.95, 0.9)
-font_size = 20
 
-[node name="QuitButton" type="Button" parent="UI/Panel/Buttons"]
-size = Vector2(150, 50)
+[node name="QuitButton" type="Button" parent="Panel/VBox/Buttons"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.9, 0.8, 1)
+theme_override_colors/font_hover_color = Color(1, 0.95, 0.85, 1)
+theme_override_font_sizes/font_size = 20
+custom_styles/normal = SubResource("btn_normal")
+custom_styles/hover = SubResource("btn_hover")
 text = "退出游戏"
-custom_styles/normal = SubResource("4")
-custom_styles/hover = SubResource("5")
-custom_colors/font_color = Color(0.95, 0.95, 0.9)
-font_size = 20
-[connection signal="pressed" from="UI/Panel/Buttons/RestartButton" to="." method="_on_restart"]
-[connection signal="pressed" from="UI/Panel/Buttons/QuitButton" to="." method="_on_quit"]
+
+[node name="SpacerBottom" type="Control" parent="Panel/VBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[connection signal="pressed" from="Panel/VBox/Buttons/RestartButton" to="." method="_on_restart"]
+[connection signal="pressed" from="Panel/VBox/Buttons/QuitButton" to="." method="_on_quit"]
