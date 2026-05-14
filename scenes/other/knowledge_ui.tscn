@@ -1,43 +1,126 @@
 [gd_scene format=3 uid="uid://cytn6n2gs2igx"]
 
 [ext_resource type="Script" uid="uid://bcrp5f0u66uam" path="res://scenes/other/knowledge_ui.gd" id="1_4k0d0"]
+[ext_resource type="Texture2D" uid="uid://c0kd8r20px1p0" path="res://assets/知识卡片ui.png" id="2_kb"]
+
+[sub_resource type="StyleBoxFlat" id="panel_bg"]
+bg_color = Color(0.94, 0.9, 0.8, 0.97)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.55, 0.38, 0.2, 0.85)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 8
+shadow_offset = Vector2(2, 3)
+
+[sub_resource type="StyleBoxFlat" id="detail_bg"]
+bg_color = Color(0.96, 0.93, 0.87, 0.97)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.55, 0.38, 0.2, 0.85)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 8
+shadow_offset = Vector2(2, 3)
 
 [node name="KnowledgeUI" type="CanvasLayer" unique_id=130528436]
 process_mode = 3
 script = ExtResource("1_4k0d0")
 
-[node name="Background" type="ColorRect" parent="." unique_id=880681306]
+[node name="ContentContainer" type="Control" parent="." unique_id=1429308165]
+visible = false
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.5019608)
+mouse_filter = 1
 
-[node name="ItemList" type="ItemList" parent="." unique_id=116276369]
-anchors_preset = 8
+[node name="Background" type="ColorRect" parent="ContentContainer" unique_id=880681306]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.55)
+
+[node name="CardListPanel" type="Panel" parent="ContentContainer" unique_id=1056569981]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -448.0
-offset_top = -260.0
+offset_top = -280.0
 offset_right = -64.0
-offset_bottom = 252.0
+offset_bottom = 270.0
 grow_horizontal = 2
 grow_vertical = 2
-auto_height = true
+theme_override_styles/panel = SubResource("panel_bg")
 
-[node name="DetailLabel" type="RichTextLabel" parent="." unique_id=1258758965]
-anchors_preset = 8
+[node name="ItemList" type="ItemList" parent="ContentContainer/CardListPanel" unique_id=1926035368]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.25, 0.22, 0.16, 1)
+theme_override_colors/font_selected_color = Color(0.16, 0.13, 0.07, 1)
+theme_override_constants/v_separation = 8
+theme_override_constants/icon_margin = 16
+theme_override_font_sizes/font_size = 20
+
+[node name="DetailPanel" type="Panel" parent="ContentContainer" unique_id=451873103]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -260.0
-offset_right = 384.0
-offset_bottom = 252.0
+offset_top = -280.0
+offset_right = 400.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("detail_bg")
+
+[node name="DetailLabel" type="RichTextLabel" parent="ContentContainer/DetailPanel" unique_id=872616042]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
+scroll_active = false
 
+[node name="ToggleBtn" type="TextureButton" parent="." unique_id=2114464487]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1133.0
+offset_top = 14.0
+offset_right = -1083.0
+offset_bottom = 64.0
+texture_normal = ExtResource("2_kb")
+stretch_mode = 4

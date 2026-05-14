@@ -113,4 +113,3 @@ scale = Vector2(0.99999964, 0.9999999)
 shape = SubResource("RectangleShape2D_q3cri")
 
 [node name="KnowledgeUI" parent="." unique_id=130528436 instance=ExtResource("9_ih6po")]
-visible = false

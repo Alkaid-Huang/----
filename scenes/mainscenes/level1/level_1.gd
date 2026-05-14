@@ -24,7 +24,7 @@ var questions_data: Array = [
 		"question": "第2题：位于立柱和横梁交接处、层层叠加的构件是？",
 		"choices": ["res://assets/images/第一关素材/斗拱素材.png", "res://assets/images/第一关素材/雀替素材.png", "res://assets/images/第一关素材/牛腿素材.png"],
 		"choice_labels": ["斗拱", "雀替", "牛腿"],
-		"wrong_hints": ["雀替是辅助支撑构件。", "牛腿是悬挑支撑构件。"],
+		"wrong_hints": ["雀替是辅助支撑构件。", "牛腿是悬挑支撑构件111111111111111111111111111111。"],
 		"correct_hint": "正确！斗拱层层叠加，是古建精髓。",
 		"correct_index": 0
 	},
@@ -55,7 +55,7 @@ func _ready():
 			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 			label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 			label.add_theme_font_size_override("font_size", 18)
-			label.add_theme_color_override("font_color", Color(1, 1, 1, 1))
+			label.add_theme_color_override("font_color", Color(0, 0, 0, 1))
 			child.add_child(label)
 			choice_labels.append(label)
 	if questions_data.size() > 0:

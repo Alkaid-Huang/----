@@ -1,41 +1,42 @@
 [gd_scene format=3 uid="uid://br32cw8qx725p"]
 
 [ext_resource type="Script" uid="uid://dw38p5k7vhj8f" path="res://scenes/mainscenes/level1/level_1.gd" id="1_cfjva"]
+[ext_resource type="Texture2D" uid="uid://dm8bt2htsg41t" path="res://assets/level问答背景素材.jpg" id="2_bg"]
+[ext_resource type="PackedScene" uid="uid://cytn6n2gs2igx" path="res://scenes/other/knowledge_ui.tscn" id="3_ku"]
 
 [node name="Level1" type="Node2D" unique_id=1187211809]
 script = ExtResource("1_cfjva")
-return_scene_path = "res://scenes/mainscenes/main2/scene_main_2.tscn"
 
-[node name="BackgroundImage" type="ColorRect" parent="." unique_id=446219707]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.25, 0.2, 0.15, 1)
+[node name="BackgroundImage" type="Sprite2D" parent="." unique_id=1168335098]
+position = Vector2(572, 324.00003)
+scale = Vector2(2.9791667, 3)
+texture = ExtResource("2_bg")
 
 [node name="Question" type="Label" parent="." unique_id=1480397442]
 offset_left = 24.0
-offset_top = 40.0
-offset_right = 896.0
-offset_bottom = 152.0
-theme_override_colors/font_color = Color(0.95, 0.92, 0.85, 1)
+offset_top = 100.0
+offset_right = 1128.0
+offset_bottom = 184.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "问题
 "
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2039481880]
 anchors_preset = -1
 anchor_bottom = 0.5
-offset_top = 232.0
-offset_right = 927.0
-offset_bottom = 498.0
+offset_left = 114.0
+offset_top = 264.0
+offset_right = 1038.0
+offset_bottom = 551.0
 grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
 
 [node name="Choice1" type="TextureButton" parent="HBoxContainer" unique_id=1797291871]
-layout_mode = 2
 custom_minimum_size = Vector2(140, 100)
+layout_mode = 2
 
 [node name="Choice2" type="TextureButton" parent="HBoxContainer" unique_id=1729445620]
 layout_mode = 2
@@ -49,8 +50,8 @@ offset_right = 1153.0
 offset_bottom = 647.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=1942788924]
-position = Vector2(120.000084, 323.5)
-scale = Vector2(1.4285717, 3.5944443)
+position = Vector2(-920, 1.0842022e-19)
+scale = Vector2(3.0182295, 2.9907408)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1055435277]
 layout_mode = 0
@@ -60,3 +61,5 @@ offset_right = 224.0
 offset_bottom = 576.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "提示"
+
+[node name="KnowledgeUI" parent="." instance=ExtResource("3_ku")]

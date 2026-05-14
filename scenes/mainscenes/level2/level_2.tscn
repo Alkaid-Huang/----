@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dtkjwnkfu0dpt"]
 
 [ext_resource type="Script" uid="uid://7p2bbyfbd8oi" path="res://scenes/mainscenes/level2/level_2.gd" id="1_mms31"]
+[ext_resource type="PackedScene" uid="uid://cytn6n2gs2igx" path="res://scenes/other/knowledge_ui.tscn" id="2_ku"]
 
 [node name="Level2" type="Node2D" unique_id=1187211809]
 script = ExtResource("1_mms31")
@@ -59,3 +60,5 @@ offset_right = 224.0
 offset_bottom = 576.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "提示"
+
+[node name="KnowledgeUI" parent="." instance=ExtResource("2_ku")]

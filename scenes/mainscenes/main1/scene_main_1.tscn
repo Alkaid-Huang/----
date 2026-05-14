@@ -8,8 +8,9 @@
 [ext_resource type="Script" uid="uid://dpb53dd5nbnv8" path="res://scenes/mainscenes/main1/area_2d_2.gd" id="8_e6lcw"]
 [ext_resource type="Script" uid="uid://bxmpup83goj4m" path="res://scenes/mainscenes/main1/area_2d_3.gd" id="9_qfjua"]
 [ext_resource type="Script" uid="uid://dq36jk75uyo5o" path="res://scenes/mainscenes/main1/area_2d_4.gd" id="10_n5pl8"]
-[ext_resource type="Script" uid="uid://b6l82m00ce6gg" path="res://scenes/mainscenes/main1/area_2d_5.gd" id="11_pa0uj"]
 [ext_resource type="PackedScene" uid="uid://cytn6n2gs2igx" path="res://scenes/other/knowledge_ui.tscn" id="12_5bvmg"]
+[ext_resource type="Texture2D" uid="uid://b4mem2h182jwa" path="res://assets/北方四合院破旧版.jpg" id="13_bg"]
+[ext_resource type="Texture2D" uid="uid://dhe0b0is1ojtw" path="res://assets/草.png" id="14_grass"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klic1"]
 size = Vector2(775.385, 65.4191)
@@ -26,49 +27,43 @@ size = Vector2(20, 39.5944)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm0wm"]
 size = Vector2(20, 44.2672)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ri8em"]
-size = Vector2(209.208, 79.4375)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8b6n7"]
-size = Vector2(316.006, 52.9584)
+size = Vector2(796.00006, 18.239601)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3cri"]
-size = Vector2(308.691, 59.1887)
+[sub_resource type="CircleShape2D" id="interact_1"]
+radius = 8.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ri8em"]
-radius = 50.0
+[sub_resource type="CircleShape2D" id="interact_2"]
+radius = 8.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uonyl"]
-radius = 50.0
+[sub_resource type="CircleShape2D" id="interact_3"]
+radius = 8.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lclhw"]
-radius = 50.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_q3cri"]
-radius = 50.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_8b6n7"]
-radius = 50.0
+[sub_resource type="CircleShape2D" id="interact_4"]
+radius = 8.0
 
 [node name="SceneMain" type="Node2D" unique_id=1548517593]
 script = ExtResource("1_48hdx")
 
-[node name="Sprite2D" type="ColorRect" parent="." unique_id=115504040]
-custom_minimum_size = Vector2(1154, 648)
-color = Color(0.18, 0.14, 0.1, 1)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=115504040]
+y_sort_enabled = true
+position = Vector2(0, 10)
+texture = ExtResource("13_bg")
+centered = false
 
 [node name="Player" parent="Sprite2D" unique_id=1417878030 instance=ExtResource("3_yqrg8")]
-position = Vector2(-20.4818, -51.4008)
+position = Vector2(953.0001, 900)
 scale = Vector2(1.46299, 1.5576)
 
 [node name="Camera2D" type="Camera2D" parent="Sprite2D/Player" unique_id=728391353]
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(1.5, 1.5)
 
 [node name="NPC1" parent="Sprite2D" unique_id=1469350243 instance=ExtResource("4_27ml3")]
-position = Vector2(93.6313, -80.9952)
+position = Vector2(1131, 922.00006)
 scale = Vector2(1.46299, 1.5576)
 
 [node name="CollisionMap" type="Node2D" parent="Sprite2D" unique_id=608744211]
+position = Vector2(960, 902)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D/CollisionMap" unique_id=1520080625]
 
@@ -100,100 +95,69 @@ shape = SubResource("RectangleShape2D_w74us")
 position = Vector2(67.2975, -184.124)
 shape = SubResource("RectangleShape2D_bm0wm")
 
-[node name="StaticBody2D6" type="StaticBody2D" parent="Sprite2D/CollisionMap" unique_id=46230522]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/CollisionMap/StaticBody2D6" unique_id=1007433819]
-position = Vector2(6.5835, 148.751)
-scale = Vector2(0.999999, 1)
-shape = SubResource("RectangleShape2D_ri8em")
-
 [node name="StaticBody2D7" type="StaticBody2D" parent="Sprite2D/CollisionMap" unique_id=1294156013]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/CollisionMap/StaticBody2D7" unique_id=270345057]
-position = Vector2(-225.3, 214.949)
+position = Vector2(34, 116.11975)
 shape = SubResource("RectangleShape2D_8b6n7")
 
-[node name="StaticBody2D8" type="StaticBody2D" parent="Sprite2D/CollisionMap" unique_id=828807265]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/CollisionMap/StaticBody2D8" unique_id=1771730173]
-position = Vector2(252.366, 218.064)
-shape = SubResource("RectangleShape2D_q3cri")
-
 [node name="WeedsGroup" type="Node2D" parent="Sprite2D" unique_id=256689279]
-position = Vector2(-848.534, -529.584)
+position = Vector2(103.00001, 363)
 scale = Vector2(1.46299, 1.5576)
 script = ExtResource("5_pr4ra")
 trigger_ref = NodePath("../NPC1")
 
-[node name="Area2D" type="Area2D" parent="Sprite2D/WeedsGroup" unique_id=1086428223]
-position = Vector2(495, 252)
-scale = Vector2(0.912078, 0.805382)
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1086428223]
+position = Vector2(1057, 841)
+scale = Vector2(1.3343, 1.2545)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("6_i8j1s")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/WeedsGroup/Area2D" unique_id=1377553177]
-shape = SubResource("CircleShape2D_ri8em")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=1377553177]
+shape = SubResource("interact_1")
 
-[node name="Sprite2D" type="ColorRect" parent="Sprite2D/WeedsGroup/Area2D" unique_id=1473748936]
-custom_minimum_size = Vector2(30, 30)
-color = Color(0.15, 0.5, 0.15, 1)
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Area2D" unique_id=1473748936]
+position = Vector2(0.74945736, 0)
+texture = ExtResource("14_grass")
 
-[node name="Area2D2" type="Area2D" parent="Sprite2D/WeedsGroup" unique_id=1062646516]
-position = Vector2(481, 283)
-scale = Vector2(0.912078, 0.805382)
+[node name="Area2D2" type="Area2D" parent="Sprite2D" unique_id=1062646516]
+position = Vector2(806.7, 803.8)
+scale = Vector2(1.3343, 1.2545)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("8_e6lcw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/WeedsGroup/Area2D2" unique_id=800640737]
-shape = SubResource("CircleShape2D_uonyl")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D2" unique_id=800640737]
+shape = SubResource("interact_2")
 
-[node name="Sprite2D2" type="ColorRect" parent="Sprite2D/WeedsGroup/Area2D2" unique_id=780764427]
-custom_minimum_size = Vector2(30, 30)
-color = Color(0.2, 0.55, 0.2, 1)
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D/Area2D2" unique_id=780764427]
+texture = ExtResource("14_grass")
 
-[node name="Area2D3" type="Area2D" parent="Sprite2D/WeedsGroup" unique_id=125463979]
-position = Vector2(707, 303)
-scale = Vector2(0.912078, 0.805382)
+[node name="Area2D3" type="Area2D" parent="Sprite2D" unique_id=125463979]
+position = Vector2(1110.9, 774)
+scale = Vector2(1.3343, 1.2545)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("9_qfjua")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/WeedsGroup/Area2D3" unique_id=1689800874]
-shape = SubResource("CircleShape2D_lclhw")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D3" unique_id=1689800874]
+shape = SubResource("interact_3")
 
-[node name="Sprite2D3" type="ColorRect" parent="Sprite2D/WeedsGroup/Area2D3" unique_id=344623056]
-custom_minimum_size = Vector2(30, 30)
-color = Color(0.1, 0.45, 0.1, 1)
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D/Area2D3" unique_id=344623056]
+texture = ExtResource("14_grass")
 
-[node name="Area2D4" type="Area2D" parent="Sprite2D/WeedsGroup" unique_id=957741521]
-position = Vector2(460, 397)
-scale = Vector2(0.912078, 0.805382)
+[node name="Area2D4" type="Area2D" parent="Sprite2D" unique_id=957741521]
+position = Vector2(818, 995)
+scale = Vector2(1.3343, 1.2545)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("10_n5pl8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/WeedsGroup/Area2D4" unique_id=1468191324]
-shape = SubResource("CircleShape2D_q3cri")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D4" unique_id=1468191324]
+shape = SubResource("interact_4")
 
-[node name="Sprite2D4" type="ColorRect" parent="Sprite2D/WeedsGroup/Area2D4" unique_id=1680430206]
-custom_minimum_size = Vector2(30, 30)
-color = Color(0.18, 0.5, 0.12, 1)
-
-[node name="Area2D5" type="Area2D" parent="Sprite2D/WeedsGroup" unique_id=183785345]
-position = Vector2(708, 402)
-scale = Vector2(0.912078, 0.805382)
-collision_layer = 4
-collision_mask = 2
-script = ExtResource("11_pa0uj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/WeedsGroup/Area2D5" unique_id=205116911]
-shape = SubResource("CircleShape2D_8b6n7")
-
-[node name="Sprite2D5" type="ColorRect" parent="Sprite2D/WeedsGroup/Area2D5" unique_id=1102493959]
-custom_minimum_size = Vector2(30, 30)
-color = Color(0.12, 0.48, 0.13, 1)
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D/Area2D4" unique_id=1680430206]
+texture = ExtResource("14_grass")
 
 [node name="KnowledgeUI" parent="." unique_id=1026712559 instance=ExtResource("12_5bvmg")]
-visible = false

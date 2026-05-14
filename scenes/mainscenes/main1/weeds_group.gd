@@ -7,13 +7,13 @@ var _total: int = 0
 var _cleared: int = 0
 
 func _ready():
-	var children = get_children()
-	_total = children.size()
-	print("[WeedGroup] 共 ", _total, " 处杂草")
-
+	var parent = get_parent()
+	var children = parent.get_children()
 	for child in children:
 		if child is WeedArea:
 			child.cleared.connect(_on_weed_cleared)
+			_total += 1
+	print("[WeedGroup] 共 ", _total, " 处杂草")
 
 func _on_weed_cleared():
 	_cleared += 1

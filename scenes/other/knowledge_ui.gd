@@ -1,19 +1,21 @@
 extends CanvasLayer
 
-@onready var item_list: ItemList = $ItemList
-@onready var detail_label: RichTextLabel = $DetailLabel
+@onready var item_list: ItemList = $ContentContainer/CardListPanel/ItemList
+@onready var detail_label: RichTextLabel = $ContentContainer/DetailPanel/DetailLabel
+@onready var content_container: Control = $ContentContainer
 
 func _ready():
-		# ✅ 默认隐藏
-	visible = false
 	print("🎨[UI] 知识面板启动...")
 	if not item_list or not detail_label:
 		push_error("[UI] 节点缺失！请检查场景树")
 		return
 		
 	#  监听全局信号
+	item_list.allow_rmb_select = false
 	KnowledgeManager.list_refresh_needed.connect(_refresh_list)
 	item_list.item_selected.connect(_on_item_selected)
+	$ToggleBtn.pressed.connect(toggle)
+	content_container.gui_input.connect(_on_content_gui_input)
 	
 	_refresh_list()
 	
@@ -52,20 +54,29 @@ func _show_detail(index):
 	var card = KnowledgeManager.CARD_DATA[index]
 	
 	detail_label.text = """
-		[font_size=26][color=#4299e1]{title}[/color][/font_size]
-		[font_size=14][color=#a0aec0]【{tag}】| 📅 {date} | ⭐ {level}[/color][/font_size]
+		[font_size=26][color=#3d1c00]{title}[/color][/font_size]
 		
-		[h1]简介[/h1]
-		{desc}
+		[color=#000]{desc}[/color]
 		
-		[h1]详细内容[/h1]
-		{content}
+		[font_size=20][color=#5c2a0a]详细内容[/color][/font_size]
+		[color=#000]{content}[/color]
 		""".format(card)
 		
 	print("👁️[UI] 显示详情 -> ", card.title)
 	
 # 🔘 开关函数（供按钮调用）
 func toggle():
-	visible = !visible
-	#get_tree().paused = visible  # 打开时暂停游戏，关闭时恢复
-	print("📚 知识卡片UI: ", "打开" if visible else "关闭")
+	content_container.visible = not content_container.visible
+	print("📚 知识卡片UI: ", "打开" if content_container.visible else "关闭")
+
+func close_panel():
+	content_container.visible = false
+	print("📚 知识卡片UI: 关闭")
+
+func _on_content_gui_input(event: InputEvent):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		var pos = event.position
+		var card_rect = Rect2($ContentContainer/CardListPanel.position, $ContentContainer/CardListPanel.size)
+		var detail_rect = Rect2($ContentContainer/DetailPanel.position, $ContentContainer/DetailPanel.size)
+		if not card_rect.has_point(pos) and not detail_rect.has_point(pos):
+			close_panel()

@@ -5,6 +5,9 @@ extends Control
 @onready var menu_container: VBoxContainer = $MenuContainer
 @onready var title_label: Label = $TitleContainer/Title
 @onready var subtitle_label: Label = $TitleContainer/Subtitle
+@onready var bgm_slider: HSlider = $AudioSettings/AudioPanel/AudioVBox/BgmRow/BgmSlider
+@onready var sfx_slider: HSlider = $AudioSettings/AudioPanel/AudioVBox/SfxRow/SfxSlider
+@onready var audio_settings: Control = $AudioSettings
 
 var _prologue_lines: Array[String] = [
 	"七年后，陈远再次回到了青石镇。",
@@ -22,7 +25,31 @@ var _prologue_done: bool = false
 func _ready():
 	print("[StartScreen] 启动界面加载完成")
 	prologue_label.text = ""
+	_load_audio_settings()
+	bgm_slider.value_changed.connect(_on_bgm_volume_changed)
+	sfx_slider.value_changed.connect(_on_sfx_volume_changed)
+	var settings_btn: TextureButton = $SettingsBtn
+	settings_btn.pressed.connect(_on_settings_toggled)
 	_show_next_line()
+
+func _load_audio_settings():
+	var music_idx = AudioServer.get_bus_index("Music")
+	var sfx_idx = AudioServer.get_bus_index("SFX")
+	bgm_slider.value = AudioServer.get_bus_volume_db(music_idx)
+	sfx_slider.value = AudioServer.get_bus_volume_db(sfx_idx)
+
+func _on_bgm_volume_changed(value: float):
+	var idx = AudioServer.get_bus_index("Music")
+	if idx != -1:
+		AudioServer.set_bus_volume_db(idx, value)
+
+func _on_sfx_volume_changed(value: float):
+	var idx = AudioServer.get_bus_index("SFX")
+	if idx != -1:
+		AudioServer.set_bus_volume_db(idx, value)
+
+func _on_settings_toggled():
+	audio_settings.visible = not audio_settings.visible
 
 func _show_next_line():
 	if _line_index >= _prologue_lines.size():
