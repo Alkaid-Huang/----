@@ -25,6 +25,9 @@ func _ready() -> void:
 
 func on_interactable_activated() -> void:
 	print("[NPC2] 玩家进入交互范围")
+	if GameManager.level2_complete:
+		interactable_label_component.hide()
+		return
 	interactable_label_component.show()
 	in_range = true
 
@@ -35,6 +38,9 @@ func on_interactable_deactivated() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if in_range and not is_talking and event.is_action_pressed("interact"):
+		if GameManager.level2_complete:
+			print("[NPC2] 关卡已完成，禁止交互")
+			return
 		is_talking = true
 		await _talk_and_jump()
 		is_talking = false

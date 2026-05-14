@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dwk1bt44ury7q"
+path="res://.godot/imported/act5_back_home.dialogue-2f53368ec8facfbc0b77fd422a9d90ef.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/act5_back_home.dialogue"
+dest_files=["res://.godot/imported/act5_back_home.dialogue-2f53368ec8facfbc0b77fd422a9d90ef.tres"]
+
+[params]
+
+defaults=true

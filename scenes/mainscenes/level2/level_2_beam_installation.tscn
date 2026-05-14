@@ -1,73 +1,94 @@
 [gd_scene format=3 uid="uid://bs02cwx7djli4"]
 
-[ext_resource type="Script" uid="uid://bbn2wi256fcc4" path="res://scenes/mainscenes/level2/level_2_beam_installation.gd" id="1_37vrr"]
+[ext_resource type="Script" uid="uid://t3cqesgbtap2" path="res://scenes/mainscenes/level2/level_2_beam_installation.gd" id="1_gd"]
 [ext_resource type="PackedScene" uid="uid://btwo7nbxeuhrx" path="res://scenes/other/liang_good.tscn" id="2_byhhs"]
 [ext_resource type="PackedScene" uid="uid://dtmumjsfp75py" path="res://scenes/other/liang_bad.tscn" id="3_qc7w0"]
+[ext_resource type="Texture2D" uid="uid://c564dvvvnvjxt" path="res://assets/房梁屋子图片.png" id="5_8ejxw"]
+[ext_resource type="Theme" uid="uid://dsepw6ihcoeu5" path="res://dialogue/conversations/dialogue_balloon_theme.tres" id="5_dw6kd"]
 [ext_resource type="Script" uid="uid://cw5si8deyvoe1" path="res://scenes/mainscenes/level2/target_zone.gd" id="5_qc7w0"]
+[ext_resource type="PackedScene" uid="uid://cytn6n2gs2igx" path="res://scenes/other/knowledge_ui.tscn" id="6_ph74o"]
+[ext_resource type="Theme" uid="uid://dqjixgf5wxxu2" path="res://scenes/mainscenes/level3/button_theme.tres" id="6_wje7d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2vle3"]
-size = Vector2(536, 29.375)
+size = Vector2(200, 30)
 
-[node name="Level2_BeamInstallation" type="Node2D" unique_id=1555834814]
-script = ExtResource("1_37vrr")
+[node name="Level2_BeamInstallation" type="Node2D" unique_id=482101842]
+script = ExtResource("1_gd")
 good_beam_scene = ExtResource("2_byhhs")
 bad_beam_scene = ExtResource("3_qc7w0")
 
-[node name="Background" type="ColorRect" parent="." unique_id=327818068]
-layout_mode = 1
-anchors_preset = 15
+[node name="BGLayer" type="CanvasLayer" parent="." unique_id=1489693052]
+layer = -1
+
+[node name="Background" type="ColorRect" parent="BGLayer" unique_id=1449612688]
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 275.0
+offset_right = -275.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.15, 0.18, 0.2, 1)
+mouse_filter = 2
+color = Color(0.92, 0.88, 0.78, 1)
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1679479407]
-position = Vector2(520, 16)
+position = Vector2(576, 96)
 
-[node name="TargetZone" type="Area2D" parent="." unique_id=581696634]
-position = Vector2(544, 248)
-collision_layer = 0
+[node name="TargetZone" type="Area2D" parent="." unique_id=966806156]
+position = Vector2(576, 224)
 script = ExtResource("5_qc7w0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetZone" unique_id=210758713]
-position = Vector2(-12, -102.6875)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetZone" unique_id=136384116]
+position = Vector2(0, 40)
 shape = SubResource("RectangleShape2D_2vle3")
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=340851522]
+[node name="UI" type="CanvasLayer" parent="." unique_id=421493833]
 
-[node name="Label_Status" type="Label" parent="UI" unique_id=546340617]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
+[node name="Label_Status" type="Label" parent="UI" unique_id=2028117579]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 544.0
+offset_top = -284.0
+offset_right = 608.0
+offset_bottom = -261.0
+grow_vertical = 2
+theme = ExtResource("5_dw6kd")
 text = "等待下落"
 
-[node name="Button_Confirm" type="Button" parent="UI" unique_id=1059442495]
-anchors_preset = -1
-anchor_left = 0.49300003
+[node name="Label_Result" type="Label" parent="UI" unique_id=1910513138]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 552.0
+offset_top = -112.0
+offset_right = 600.0
+offset_bottom = -89.0
+grow_vertical = 0
+theme = ExtResource("5_dw6kd")
+
+[node name="Button_Confirm" type="Button" parent="UI" unique_id=17256813]
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.50600004
-offset_left = -31.936035
-offset_top = -12.0
-offset_bottom = 15.111969
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = 164.0
+offset_right = 24.0
+offset_bottom = 198.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_wje7d")
+theme_override_colors/font_color = Color(0.95, 0.9, 0.8, 1)
+theme_override_font_sizes/font_size = 18
+text = "落梁"
 
-[node name="Label_Result" type="Label" parent="UI" unique_id=1781456801]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 20.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=493215310]
+position = Vector2(573.25977, 352.00003)
+scale = Vector2(0.18260616, 0.18249616)
+texture = ExtResource("5_8ejxw")
 
-
+[node name="KnowledgeUI" parent="." unique_id=130528436 instance=ExtResource("6_ph74o")]
+offset = Vector2(328, 0)
+transform = Transform2D(1, 0, 0, 1, 328, 0)

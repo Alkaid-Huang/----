@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://btwo7nbxeuhrx"]
 
 [ext_resource type="Script" uid="uid://bxyebcseapm06" path="res://scenes/other/liang.gd" id="1_7sfs2"]
+[ext_resource type="Texture2D" uid="uid://chbnost5l2niw" path="res://assets/好房梁.png" id="2_8ge1o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3e8jb"]
-size = Vector2(74, 34)
+size = Vector2(200, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7sfs2"]
-size = Vector2(65, 25)
+size = Vector2(200, 30)
 
 [node name="Liang_Good" type="CharacterBody2D" unique_id=736610646]
 script = ExtResource("1_7sfs2")
@@ -20,6 +21,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=810657894]
 shape = SubResource("RectangleShape2D_7sfs2")
 
-[node name="Sprite2D" type="ColorRect" parent="." unique_id=53965193]
-custom_minimum_size = Vector2(80, 24)
-color = Color(0.55, 0.35, 0.15, 1)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=248404003]
+position = Vector2(0.50000495, -8.5)
+scale = Vector2(0.63437504, 0.91249996)
+texture = ExtResource("2_8ge1o")

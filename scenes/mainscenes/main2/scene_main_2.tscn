@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://blairys7hhh36"]
 
-[ext_resource type="Script" uid="uid://pnc632smr58o" path="res://scenes/mainscenes/end/scene_main.gd" id="1_24du7"]
+[ext_resource type="Script" uid="uid://c1hokqmbw527o" path="res://scenes/mainscenes/main2/scene_main_2.gd" id="1_24du7"]
 [ext_resource type="Texture2D" uid="uid://dd6n25ciqgy1r" path="res://assets/北方四合院清理版.jpg" id="2_h8awq"]
 [ext_resource type="PackedScene" uid="uid://bqt1w502rudn6" path="res://scenes/characters/player/player.tscn" id="4_5hhdo"]
 [ext_resource type="PackedScene" uid="uid://dgymfo1u78iwk" path="res://scenes/characters/NPC/npc2.tscn" id="5_audxg"]
-[ext_resource type="Script" uid="uid://p2e5dpbitx81" path="res://scenes/mainscenes/main2/WoodInteract.gd" id="7_0pcj4"]
 [ext_resource type="Script" uid="uid://d4e3bqpar8e6y" path="res://scenes/mainscenes/main2/EnterScene3.gd" id="8_menkou"]
 [ext_resource type="PackedScene" uid="uid://cytn6n2gs2igx" path="res://scenes/other/knowledge_ui.tscn" id="9_668kv"]
 
@@ -46,7 +45,7 @@ scale = Vector2(1.4629896, 1.5575986)
 zoom = Vector2(1.5, 1.5)
 
 [node name="NPC2" parent="Sprite2D" unique_id=798983459 instance=ExtResource("5_audxg")]
-position = Vector2(796, 954)
+position = Vector2(807, 975)
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="CollisionMap" type="Node2D" parent="Sprite2D" unique_id=1378495498]
@@ -114,19 +113,5 @@ theme_override_colors/font_color = Color(1, 1, 0.3, 1)
 theme_override_font_sizes/font_size = 16
 text = "按F进入"
 horizontal_alignment = 1
-
-[node name="WoodInteract" type="Area2D" parent="Sprite2D" unique_id=26527441]
-position = Vector2(1087, 743)
-collision_layer = 4
-collision_mask = 2
-script = ExtResource("7_0pcj4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/WoodInteract" unique_id=1950465202]
-shape = SubResource("CircleShape2D_wood")
-debug_color = Color(0.7157105, 0.2855825, 0.96083266, 0.41960785)
-
-[node name="WoodVisual" type="ColorRect" parent="Sprite2D/WoodInteract" unique_id=1446113621]
-custom_minimum_size = Vector2(60, 60)
-color = Color(0.85, 0.75, 0.15, 1)
 
 [node name="KnowledgeUI" parent="." unique_id=130528436 instance=ExtResource("9_668kv")]

@@ -63,7 +63,7 @@ interact={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/conversations/test1.dialogue", "res://dialogue/conversations/test2.dialogue", "res://dialogue/conversations/enter_level.dialogue", "res://dialogue/conversations/get_ability.dialogue", "res://dialogue/conversations/remind.dialogue", "res://dialogue/conversations/act1_clear_done.dialogue", "res://dialogue/conversations/act1_meet_uncle.dialogue", "res://dialogue/conversations/act2_meet_lin.dialogue", "res://dialogue/conversations/act3_beam_success.dialogue", "res://dialogue/conversations/act4_window_done.dialogue", "res://dialogue/conversations/prologue.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/conversations/test1.dialogue", "res://dialogue/conversations/test2.dialogue", "res://dialogue/conversations/get_ability.dialogue", "res://dialogue/conversations/remind.dialogue", "res://dialogue/conversations/act1_clear_done.dialogue", "res://dialogue/conversations/act1_meet_uncle.dialogue", "res://dialogue/conversations/act2_meet_lin.dialogue", "res://dialogue/conversations/act3_beam_success.dialogue", "res://dialogue/conversations/act4_window_done.dialogue", "res://dialogue/conversations/act5_back_home.dialogue", "res://dialogue/conversations/prologue.dialogue")
 
 [layer_names]
 

@@ -8,7 +8,7 @@ func _ready():
 	print("[MenKou] 门口入口初始化, target=", target_scene)
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
-	_update_prompt()
+	$PromptLabel.visible = false
 
 func _process(delta):
 	_update_prompt()
@@ -17,9 +17,9 @@ func _update_prompt():
 	if GameManager.level2_complete:
 		$PromptLabel.text = "按F进入"
 		$PromptLabel.modulate = Color(1, 1, 0.3, 1)
+		$PromptLabel.visible = player_nearby
 	else:
-		$PromptLabel.text = "请先完成任务"
-		$PromptLabel.modulate = Color(1, 0.5, 0.5, 1)
+		$PromptLabel.visible = false
 
 func _on_body_entered(body):
 	if body.name == "Player" or body.is_in_group("player"):

@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://dtmumjsfp75py"]
 
 [ext_resource type="Script" uid="uid://bxyebcseapm06" path="res://scenes/other/liang.gd" id="1_651s8"]
+[ext_resource type="Texture2D" uid="uid://c2yt84hhi6d5y" path="res://assets/坏房梁.png" id="2_jqxly"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3e8jb"]
-size = Vector2(74, 34)
+size = Vector2(200, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7sfs2"]
-size = Vector2(65, 25)
+size = Vector2(200, 30)
 
 [node name="Liang_Bad" type="CharacterBody2D" unique_id=736610646]
 script = ExtResource("1_651s8")
@@ -15,12 +16,13 @@ is_good_beam = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1501413506]
 shape = SubResource("RectangleShape2D_3e8jb")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=863052642]
+[node name="Area2D" type="Area2D" parent="CollisionShape2D" unique_id=863052642]
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=810657894]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/Area2D" unique_id=810657894]
 shape = SubResource("RectangleShape2D_7sfs2")
 
-[node name="Sprite2D" type="ColorRect" parent="." unique_id=881527309]
-custom_minimum_size = Vector2(80, 24)
-color = Color(0.4, 0.2, 0.1, 1)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=769549376]
+position = Vector2(0.5000084, -0.6249981)
+scale = Vector2(0.2687166, 0.40240642)
+texture = ExtResource("2_jqxly")

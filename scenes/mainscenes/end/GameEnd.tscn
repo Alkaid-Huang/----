@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dilnp7gpqr5q1"]
 
 [ext_resource type="Script" uid="uid://cpe50x8vwrojc" path="res://scenes/mainscenes/end/GameEnd.gd" id="1"]
+[ext_resource type="Theme" uid="uid://dqjixgf5wxxu2" path="res://scenes/mainscenes/level3/button_theme.tres" id="2_w6pwa"]
 
 [node name="GameEnd" type="Control" unique_id=159906886]
 layout_mode = 3
@@ -11,7 +12,57 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
 
-[node name="Panel" type="Panel" parent="." unique_id=1752646934]
+[node name="BlackScreen" type="ColorRect" parent="." unique_id=306395722]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BlackVBox" type="VBoxContainer" parent="BlackScreen" unique_id=22514283]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SpacerTop2" type="Control" parent="BlackScreen/BlackVBox" unique_id=1087986379]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BlackTextLabel" type="RichTextLabel" parent="BlackScreen/BlackVBox" unique_id=235831343]
+custom_minimum_size = Vector2(700, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="SpacerMid" type="Control" parent="BlackScreen/BlackVBox" unique_id=1302111210]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="BigQuoteLabel" type="Label" parent="BlackScreen/BlackVBox" unique_id=1815138659]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+
+[node name="SpacerBottom2" type="Control" parent="BlackScreen/BlackVBox" unique_id=1531128451]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="." unique_id=2101442235]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,7 +101,7 @@ bbcode_enabled = true
 fit_content = true
 scroll_active = false
 
-[node name="SpacerContent" type="Control" parent="Panel/VBox" unique_id=784025620]
+[node name="SpacerContent" type="Control" parent="Panel/VBox" unique_id=789435620]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
@@ -61,6 +112,7 @@ alignment = 1
 [node name="RestartButton" type="Button" parent="Panel/VBox/Buttons" unique_id=425372122]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
+theme = ExtResource("2_w6pwa")
 theme_override_colors/font_color = Color(0.95, 0.9, 0.8, 1)
 theme_override_colors/font_hover_color = Color(1, 0.95, 0.85, 1)
 theme_override_font_sizes/font_size = 20
@@ -69,6 +121,7 @@ text = "重新开始"
 [node name="QuitButton" type="Button" parent="Panel/VBox/Buttons" unique_id=2138811697]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
+theme = ExtResource("2_w6pwa")
 theme_override_colors/font_color = Color(0.95, 0.9, 0.8, 1)
 theme_override_colors/font_hover_color = Color(1, 0.95, 0.85, 1)
 theme_override_font_sizes/font_size = 20

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dgymfo1u78iwk"]
 
 [ext_resource type="Script" uid="uid://osxxtdc0ju4" path="res://scenes/characters/NPC/npc_2.gd" id="1_f2iwl"]
+[ext_resource type="Texture2D" uid="uid://bhvsh8kwlk3db" path="res://assets/npc2林师傅.png" id="2_f2iwl"]
 [ext_resource type="PackedScene" uid="uid://beegya3dmoxfd" path="res://scenes/components/interactable_component.tscn" id="6_gv7oi"]
 [ext_resource type="PackedScene" uid="uid://dc0je7q2ltugp" path="res://scenes/components/interactable_label_component.tscn" id="7_ptovg"]
 
@@ -12,12 +13,11 @@ radius = 31.257
 
 [node name="NPC2" type="CharacterBody2D" unique_id=798983459]
 script = ExtResource("1_f2iwl")
-dialogue = null
-target_scene = "res://scenes/mainscenes/level2/level_2_beam_installation.tscn"
 
-[node name="Sprite2D" type="ColorRect" parent="." unique_id=1118546324]
-custom_minimum_size = Vector2(40, 60)
-color = Color(0.9, 0.5, 0.2, 1)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=878513191]
+position = Vector2(2.4999988, -11.999999)
+scale = Vector2(0.036621094, 0.04296875)
+texture = ExtResource("2_f2iwl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1077975042]
 position = Vector2(5.04871e-29, 9.536743e-07)
@@ -32,6 +32,5 @@ debug_color = Color(0.3482224, 0.49744344, 0.96279746, 0.41960785)
 
 [node name="InteractableLabelComponent" parent="." unique_id=760808944 instance=ExtResource("7_ptovg")]
 offset_left = 11.0
-offset_top = -25.0
 offset_right = 11.0
 offset_bottom = -25.0

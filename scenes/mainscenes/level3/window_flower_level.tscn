@@ -1,38 +1,35 @@
 [gd_scene format=3 uid="uid://wchaenm05s8o"]
 
+[ext_resource type="Texture2D" uid="uid://b37fm4bl608bf" path="res://assets/level3背景图.jpg" id="1_7fhov"]
+[ext_resource type="Texture2D" uid="uid://c2wlbh3npcnkl" path="res://assets/窗花完整.png" id="1_87q3l"]
 [ext_resource type="Script" uid="uid://basbaje33i4vl" path="res://scenes/mainscenes/level3/drawing_canvas.gd" id="1_upxwj"]
 [ext_resource type="Script" uid="uid://b7upv4hb6020m" path="res://scenes/mainscenes/level3/game_manager.gd" id="2_5ydww"]
 [ext_resource type="PackedScene" uid="uid://cytn6n2gs2igx" path="res://scenes/other/knowledge_ui.tscn" id="3_ku"]
+[ext_resource type="Texture2D" uid="uid://bfmksflo2wnbg" path="res://assets/窗花四分之一.png" id="4_py5c4"]
 
 [node name="WindowFlowerLevel" type="Node2D" unique_id=650300838]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=208189015]
+position = Vector2(576, 316)
+scale = Vector2(0.6000001, 0.58627087)
+texture = ExtResource("1_7fhov")
 
 [node name="PaperGroup" type="Node2D" parent="." unique_id=1518678428]
 position = Vector2(576, 324)
 
-[node name="PaperBg" type="ColorRect" parent="PaperGroup" unique_id=857476775]
-custom_minimum_size = Vector2(512, 512)
-color = Color(0.95, 0.93, 0.88, 1)
-
 [node name="QuarterMask" type="Node2D" parent="PaperGroup" unique_id=1399884059]
 
-[node name="MaskRight" type="ColorRect" parent="PaperGroup/QuarterMask" unique_id=1750844250]
-offset_top = -252.0
-offset_right = 256.0
-offset_bottom = 260.0
-mouse_filter = 2
-color = Color(0.01, 0.01, 0.01, 1)
-
-[node name="MaskBottom" type="ColorRect" parent="PaperGroup/QuarterMask" unique_id=424619927]
-offset_left = -256.0
-offset_top = 4.0
-offset_right = 256.0
-offset_bottom = 260.0
-mouse_filter = 2
-color = Color(0.06, 0.06, 0.06, 1)
-
-[node name="TargetQuarter" type="ColorRect" parent="PaperGroup" unique_id=767264964]
+[node name="TargetQuarter" type="ColorRect" parent="PaperGroup/QuarterMask" unique_id=767264964]
 custom_minimum_size = Vector2(256, 256)
+offset_left = -256.0
+offset_top = -260.0
+offset_right = 259.0
+offset_bottom = 255.0
 color = Color(0.9, 0.1, 0.1, 1)
+
+[node name="窗花完整" type="Sprite2D" parent="." unique_id=843489617]
+position = Vector2(576, 328)
+texture = ExtResource("1_87q3l")
 
 [node name="CutLine" type="Line2D" parent="." unique_id=1097818649]
 
@@ -45,40 +42,45 @@ script = ExtResource("1_upxwj")
 [node name="ValidationUI" type="CanvasLayer" parent="." unique_id=1294857806]
 
 [node name="ProgressBar" type="ProgressBar" parent="ValidationUI" unique_id=2140202192]
-offset_left = 376.0
-offset_top = 584.0
-offset_right = 776.0
-offset_bottom = 611.0
+offset_left = 360.0
+offset_top = 600.0
+offset_right = 760.0
+offset_bottom = 627.0
 
 [node name="LabelResult" type="Label" parent="ValidationUI" unique_id=157718202]
-offset_left = 576.0
-offset_top = 610.0
-offset_right = 616.0
-offset_bottom = 633.0
+offset_left = 552.0
+offset_top = 8.0
+offset_right = 592.0
+offset_bottom = 31.0
 vertical_alignment = 1
 
 [node name="BtnFold" type="Button" parent="ValidationUI" unique_id=2018407231]
 offset_left = 776.0
-offset_top = 584.0
+offset_top = 600.0
 offset_right = 856.0
-offset_bottom = 615.0
+offset_bottom = 631.0
 text = "折叠"
 
 [node name="BtnUnfold" type="Button" parent="ValidationUI" unique_id=1117631930]
-offset_left = 856.0
-offset_top = 584.0
-offset_right = 936.0
-offset_bottom = 615.0
+offset_left = 872.0
+offset_top = 600.0
+offset_right = 952.0
+offset_bottom = 631.0
 text = "展开"
 
 [node name="BtnReset" type="Button" parent="ValidationUI" unique_id=320472090]
-offset_left = 936.0
-offset_top = 584.0
-offset_right = 1016.0
-offset_bottom = 615.0
+offset_left = 968.0
+offset_top = 600.0
+offset_right = 1048.0
+offset_bottom = 631.0
 text = "重做"
 
 [node name="GameManager" type="Node" parent="." unique_id=597292552]
 script = ExtResource("2_5ydww")
 
-[node name="KnowledgeUI" parent="." instance=ExtResource("3_ku")]
+[node name="KnowledgeUI" parent="." unique_id=1613358426 instance=ExtResource("3_ku")]
+
+[node name="窗花四分之一" type="Sprite2D" parent="." unique_id=2026820479]
+position = Vector2(472, 224)
+scale = Vector2(2.24, 2.0799997)
+texture = ExtResource("4_py5c4")

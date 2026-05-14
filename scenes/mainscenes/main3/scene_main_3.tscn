@@ -33,7 +33,7 @@ scale = Vector2(5, 5)
 [node name="Camera2D" type="Camera2D" parent="Sprite2D/Player" unique_id=1362894112]
 
 [node name="NPC1" parent="Sprite2D" unique_id=798983459 instance=ExtResource("4_8gl18")]
-position = Vector2(840, -204.56274)
+position = Vector2(346.66666, 326.55353)
 scale = Vector2(5, 5)
 
 [node name="CollisionMap" type="Node2D" parent="Sprite2D" unique_id=88554665]

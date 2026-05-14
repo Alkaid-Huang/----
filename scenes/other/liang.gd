@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Liang
 
+signal beam_fell_off
+
 @export var is_good_beam: bool = true
 
 var speed: float = 400
@@ -11,6 +13,7 @@ func _process(delta):
 		return
 	position.y += speed * delta
 	if position.y > 1200:
+		beam_fell_off.emit()
 		queue_free()
 
 func get_beam_type() -> bool:
@@ -18,4 +21,7 @@ func get_beam_type() -> bool:
 
 func set_game_active(active: bool) -> void:
 	game_active = active
+	if not active:
+		speed = 0
+		set_process(false)
 	print("[Liang] set_game_active(", active, ") is_good=", is_good_beam)

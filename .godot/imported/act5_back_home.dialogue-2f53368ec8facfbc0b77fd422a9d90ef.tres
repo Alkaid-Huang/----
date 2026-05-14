@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_cuc7d"]
+
+[resource]
+script = ExtResource("1_cuc7d")
+using_states = PackedStringArray()
+cues = {
+"start": "1"
+}
+character_names = PackedStringArray("陈伯", "陈远")
+first_cue = "0"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": "cue"
+},
+"1": {
+&"character": "陈伯",
+&"id": "1",
+&"next_id": "2",
+&"static_id": "",
+&"text": "这窗花……真像你奶奶的手艺。",
+&"type": "dialogue"
+},
+"2": {
+&"character": "陈远",
+&"id": "2",
+&"next_id": "3",
+&"static_id": "",
+&"text": "……真好看。原来奶奶说的\"光影满屋\"是这个意思。",
+&"type": "dialogue"
+},
+"3": {
+&"character": "陈伯",
+&"id": "3",
+&"next_id": "4",
+&"static_id": "",
+&"text": "老宅子有了窗花，才算真正活过来了。",
+&"type": "dialogue"
+},
+"4": {
+&"character": "陈伯",
+&"id": "4",
+&"next_id": "5",
+&"static_id": "",
+&"text": "你看那光，透过窗花照进来，满屋子的影子都是花。",
+&"type": "dialogue"
+},
+"5": {
+&"character": "陈伯",
+&"id": "5",
+&"next_id": "6",
+&"static_id": "",
+&"text": "远儿，你知道咱们青石镇还剩下多少老宅子吗？你爷爷在的时候，这条街上有十七座。现在加上你这座，还剩五座。一座老宅子就是一段历史，拆了就真没了。",
+&"type": "dialogue"
+},
+"6": {
+&"character": "陈远",
+&"id": "6",
+&"next_id": "7",
+&"static_id": "",
+&"text": "爷爷，奶奶，老宅子……我帮你们守住了。",
+&"type": "dialogue"
+},
+"7": {
+&"id": "7",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"8": {
+&"id": "8",
+&"next_id": "9",
+&"type": ""
+},
+"9": {
+&"id": "9",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+}
+}
+metadata/dialogue_manager_version = "3.10.1"
