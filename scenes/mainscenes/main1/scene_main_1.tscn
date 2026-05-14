@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://nf8ndqok3a15"]
 
-[ext_resource type="Script" uid="uid://pnc632smr58o" path="res://scenes/mainscenes/scene_main.gd" id="1_48hdx"]
+[ext_resource type="Script" uid="uid://pnc632smr58o" path="res://scenes/mainscenes/end/scene_main.gd" id="1_48hdx"]
 [ext_resource type="PackedScene" uid="uid://bqt1w502rudn6" path="res://scenes/characters/player/player.tscn" id="3_yqrg8"]
 [ext_resource type="PackedScene" uid="uid://ceps4in61bcuo" path="res://scenes/characters/NPC/npc1.tscn" id="4_27ml3"]
 [ext_resource type="Script" uid="uid://bfeb8d4bbjqor" path="res://scenes/mainscenes/main1/weeds_group.gd" id="5_pr4ra"]

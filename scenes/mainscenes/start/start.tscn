@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://whc3l3th4qms"]
+
+[ext_resource type="Script" uid="uid://cjj4cqei1ivr1" path="res://scenes/mainscenes/start/start.gd" id="1_start"]
+[ext_resource type="Texture2D" uid="uid://b0q0884xuwl6n" path="res://assets/开始页面.jpg" id="2_bg_image"]
+[ext_resource type="Texture2D" uid="uid://rwk7b2wox4pb" path="res://assets/设置图标ui.png" id="3_gear"]
+
+[node name="Start" type="Control" unique_id=1919034456]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_start")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=174703761]
+position = Vector2(576, 323.99997)
+scale = Vector2(0.6, 0.59944487)
+texture = ExtResource("2_bg_image")
+
+[node name="StartMenuContainer" type="VBoxContainer" parent="." unique_id=277001726]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.65
+anchor_right = 0.5
+anchor_bottom = 0.65
+offset_left = -104.0
+offset_top = -237.19998
+offset_right = 96.0
+offset_bottom = -57.19998
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="StartMenuContainer" unique_id=249445330]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.15, 0.12, 0.08, 1)
+theme_override_font_sizes/font_size = 48
+text = "归园筑舍"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="StartMenuContainer" unique_id=1251247708]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.25, 0.22, 0.18, 1)
+theme_override_font_sizes/font_size = 16
+text = "— 中式古建筑修缮之旅 —"
+horizontal_alignment = 1
+
+[node name="StartBtn" type="Button" parent="StartMenuContainer" unique_id=269577458]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "开 始 游 戏"
+
+[node name="PrologueOverlay" type="ColorRect" parent="." unique_id=934483974]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12, 0.1, 0.07, 1)
+
+[node name="ProloguePanel" type="Panel" parent="." unique_id=640023563]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PrologueLabel" type="RichTextLabel" parent="ProloguePanel" unique_id=898106456]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.45
+anchor_right = 0.5
+anchor_bottom = 0.55
+offset_left = -300.0
+offset_top = -60.0
+offset_right = 300.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+fit_content = true
+scroll_following = true
+
+[node name="SettingsBtn" type="TextureButton" parent="." unique_id=1555384779]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 210.66666
+offset_bottom = 200.66666
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("3_gear")
+stretch_mode = 4
+
+[node name="AudioSettings" type="Control" parent="." unique_id=1829197467]
+visible = false
+layout_mode = 1
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 64.0
+offset_right = 260.0
+offset_bottom = 174.0
+mouse_filter = 2
+
+[node name="AudioPanel" type="Panel" parent="AudioSettings" unique_id=1613908744]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AudioVBox" type="VBoxContainer" parent="AudioSettings/AudioPanel" unique_id=314811475]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+theme_override_constants/separation = 8
+
+[node name="BgmRow" type="HBoxContainer" parent="AudioSettings/AudioPanel/AudioVBox" unique_id=950406237]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BgmIcon" type="Label" parent="AudioSettings/AudioPanel/AudioVBox/BgmRow" unique_id=695861276]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.75, 0.4, 1)
+theme_override_font_sizes/font_size = 16
+text = "♫"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BgmLabel" type="Label" parent="AudioSettings/AudioPanel/AudioVBox/BgmRow" unique_id=1572464739]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.83, 0.78, 0.65, 1)
+theme_override_font_sizes/font_size = 14
+text = "背景音乐"
+vertical_alignment = 1
+
+[node name="BgmSlider" type="HSlider" parent="AudioSettings/AudioPanel/AudioVBox/BgmRow" unique_id=1966625603]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+min_value = -40.0
+max_value = 0.0
+step = 0.5
+value = -10.0
+
+[node name="SfxRow" type="HBoxContainer" parent="AudioSettings/AudioPanel/AudioVBox" unique_id=42293503]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SfxIcon" type="Label" parent="AudioSettings/AudioPanel/AudioVBox/SfxRow" unique_id=1088355165]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.75, 0.4, 1)
+theme_override_font_sizes/font_size = 16
+text = "🔊"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SfxLabel" type="Label" parent="AudioSettings/AudioPanel/AudioVBox/SfxRow" unique_id=348011390]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.83, 0.78, 0.65, 1)
+theme_override_font_sizes/font_size = 14
+text = "音效"
+vertical_alignment = 1
+
+[node name="SfxSlider" type="HSlider" parent="AudioSettings/AudioPanel/AudioVBox/SfxRow" unique_id=1881334243]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+min_value = -40.0
+max_value = 0.0
+step = 0.5
+value = -10.0
+
+[connection signal="pressed" from="StartMenuContainer/StartBtn" to="." method="_on_start_pressed"]

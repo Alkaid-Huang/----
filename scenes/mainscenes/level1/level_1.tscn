@@ -1,16 +1,30 @@
 [gd_scene format=3 uid="uid://br32cw8qx725p"]
 
 [ext_resource type="Script" uid="uid://dw38p5k7vhj8f" path="res://scenes/mainscenes/level1/level_1.gd" id="1_cfjva"]
-[ext_resource type="Texture2D" uid="uid://dm8bt2htsg41t" path="res://assets/level问答背景素材.jpg" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://bq5u053gjsi6a" path="res://assets/level3背景图.png" id="2_uqxoj"]
 [ext_resource type="PackedScene" uid="uid://cytn6n2gs2igx" path="res://scenes/other/knowledge_ui.tscn" id="3_ku"]
+
+[sub_resource type="StyleBoxFlat" id="dialog_panel_bg"]
+bg_color = Color(0.96, 0.92, 0.84, 0.97)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.45, 0.28, 0.12, 0.9)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 10
 
 [node name="Level1" type="Node2D" unique_id=1187211809]
 script = ExtResource("1_cfjva")
 
 [node name="BackgroundImage" type="Sprite2D" parent="." unique_id=1168335098]
-position = Vector2(572, 324.00003)
-scale = Vector2(2.9791667, 3)
-texture = ExtResource("2_bg")
+position = Vector2(576, 324)
+scale = Vector2(1.44, 1.4399999)
+texture = ExtResource("2_uqxoj")
 
 [node name="Question" type="Label" parent="." unique_id=1480397442]
 offset_left = 24.0
@@ -44,22 +58,75 @@ layout_mode = 2
 [node name="Choice3" type="TextureButton" parent="HBoxContainer" unique_id=1212374233]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="." unique_id=516040537]
-offset_left = 920.0
-offset_right = 1153.0
-offset_bottom = 647.0
+[node name="KnowledgeUI" parent="." unique_id=1075641080 instance=ExtResource("3_ku")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=1942788924]
-position = Vector2(-920, 1.0842022e-19)
-scale = Vector2(3.0182295, 2.9907408)
+[node name="DialogCanvas" type="CanvasLayer" parent="." unique_id=2100000001]
+layer = 10
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1055435277]
+[node name="DialogOverlay" type="Control" parent="DialogCanvas" unique_id=2100000002]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Backdrop" type="ColorRect" parent="DialogCanvas/DialogOverlay" unique_id=2100000003]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="DialogBox" type="Panel" parent="DialogCanvas/DialogOverlay" unique_id=2100000004]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -160.0
+offset_right = 320.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("dialog_panel_bg")
+
+[node name="NPCName" type="Label" parent="DialogCanvas/DialogOverlay/DialogBox" unique_id=2100000005]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 128.0
-offset_right = 224.0
-offset_bottom = 576.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "提示"
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 624.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.35, 0.2, 0.08, 1)
+theme_override_font_sizes/font_size = 22
+text = "陈伯"
 
-[node name="KnowledgeUI" parent="." instance=ExtResource("3_ku")]
+[node name="DialogText" type="RichTextLabel" parent="DialogCanvas/DialogOverlay/DialogBox" unique_id=2100000006]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 48.0
+offset_right = 624.0
+offset_bottom = 270.0
+theme_override_colors/default_color = Color(0.2, 0.15, 0.08, 1)
+theme_override_font_sizes/normal_font_size = 17
+bbcode_enabled = true
+scroll_active = false
+
+[node name="ContinueHint" type="Label" parent="DialogCanvas/DialogOverlay/DialogBox" unique_id=2100000007]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 278.0
+offset_right = 624.0
+offset_bottom = 306.0
+theme_override_colors/font_color = Color(0.5, 0.4, 0.3, 0.8)
+theme_override_font_sizes/font_size = 14
+text = "点击任意位置继续"
+horizontal_alignment = 2

@@ -17,7 +17,7 @@ var end_lines: Array[String] = [
 	"「谨以此文献给我的祖父陈怀瑾，",
 	"以及所有守护着中国乡土建筑的无名匠人。」",
 	"",
-	"[center][color=#c9a96e]房子会老，但手艺不会。[/color][/center]"
+	"房子会老，但手艺不会。"
 ]
 var _line_index: int = 0
 

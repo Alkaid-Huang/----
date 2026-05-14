@@ -154,7 +154,7 @@ func _wait_for_dialogue_safe(timeout_seconds: float) -> void:
 		DialogueManager.dialogue_ended.disconnect(on_ended)
 
 func _jump_to_next_scene():
-	var next_scene = "res://scenes/mainscenes/main3/scene_main_3.tscn"
+	var next_scene = "res://scenes/mainscenes/main2/scene_main_2.tscn"
 	print("[Level2] 跳转到: ", next_scene)
 	var exists = FileAccess.file_exists(next_scene)
 	if exists:

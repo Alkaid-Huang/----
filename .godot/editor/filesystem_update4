@@ -1,12 +1,4 @@
-res://scenes/mainscenes/level1/level_1.tscn
+res://scenes/mainscenes/start/start.tscn
 res://dialogue/conversations/dialogue_balloon_theme.tres
-res://scenes/mainscenes/level1/level_1.gd
-res://scenes/mainscenes/main1/scene_main_1.tscn
-res://scenes/mainscenes/main1/weeds_group.gd
-res://scenes/mainscenes/main1/area_2d.gd
-res://scipts/GameManager.gd
-res://scenes/start/start.gd
-res://scenes/start/start.tscn
-res://scenes/other/knowledge_ui.gd
-res://scenes/test/test_knowledge.gd
-res://scenes/other/knowledge_ui.tscn
+res://scenes/characters/NPC/npc1.tscn
+res://scenes/mainscenes/start/start.gd

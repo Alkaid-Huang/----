@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="归园筑舍"
-run/main_scene="res://scenes/start/start.tscn"
+run/main_scene="res://scenes/mainscenes/start/start.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
 [autoload]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ceps4in61bcuo"]
 
 [ext_resource type="Script" uid="uid://bybw3ki01cbhy" path="res://scenes/characters/NPC/npc_1.gd" id="1_cmjea"]
+[ext_resource type="Texture2D" uid="uid://der35rrwl4mr8" path="res://assets/npc1陈伯j.png" id="2_cmjea"]
 [ext_resource type="PackedScene" uid="uid://beegya3dmoxfd" path="res://scenes/components/interactable_component.tscn" id="2_qxpor"]
 [ext_resource type="PackedScene" uid="uid://dc0je7q2ltugp" path="res://scenes/components/interactable_label_component.tscn" id="3_udwt8"]
 
@@ -13,9 +14,10 @@ radius = 31.257
 [node name="NPC1" type="CharacterBody2D" unique_id=798983459]
 script = ExtResource("1_cmjea")
 
-[node name="Sprite2D" type="ColorRect" parent="." unique_id=1118546324]
-custom_minimum_size = Vector2(40, 60)
-color = Color(0.2, 0.6, 0.3, 1)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=27490009]
+position = Vector2(2.3841858e-07, 0)
+scale = Vector2(0.048437495, 0.059374984)
+texture = ExtResource("2_cmjea")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1077975042]
 position = Vector2(5.04871e-29, 9.536743e-07)
@@ -30,6 +32,5 @@ debug_color = Color(0.3482224, 0.49744344, 0.96279746, 0.41960785)
 
 [node name="InteractableLabelComponent" parent="." unique_id=760808944 instance=ExtResource("3_udwt8")]
 offset_left = 11.0
-offset_top = -25.0
 offset_right = 11.0
 offset_bottom = -25.0
