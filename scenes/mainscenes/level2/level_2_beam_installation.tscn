@@ -35,11 +35,10 @@ color = Color(0.92, 0.88, 0.78, 1)
 position = Vector2(576, 96)
 
 [node name="TargetZone" type="Area2D" parent="." unique_id=966806156]
-position = Vector2(576, 224)
+position = Vector2(576, 264)
 script = ExtResource("5_qc7w0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetZone" unique_id=136384116]
-position = Vector2(0, 40)
 shape = SubResource("RectangleShape2D_2vle3")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=421493833]
@@ -54,6 +53,7 @@ offset_right = 608.0
 offset_bottom = -261.0
 grow_vertical = 2
 theme = ExtResource("5_dw6kd")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "等待下落"
 
 [node name="Label_Result" type="Label" parent="UI" unique_id=1910513138]

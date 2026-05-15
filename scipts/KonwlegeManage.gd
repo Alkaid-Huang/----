@@ -18,6 +18,10 @@ func _ready():
 	print("📘[管理器] 正在初始化...")
 	_load_data()
 	_ensure_status_array()
+
+	reset_all()
+	print("🔄[管理器] 强制重置存档（调试用，确认正常后请删除此行）")
+
 	print("📘[管理器] 初始化完成！共 ", CARD_DATA.size(), " 张卡片")
 	print("📘[管理器] 当前解锁状态: ", unlocked_status)
 
@@ -54,14 +58,21 @@ func _load_data():
 			var data = file.get_var()
 			file.close()
 			if data is Array:
-				unlocked_status = data
-				print("📂[管理器] 读取成功！状态: ", unlocked_status)
+				if data.size() != CARD_DATA.size():
+					print("⚠️[管理器] 存档数量(", data.size(), ")与卡片数量(", CARD_DATA.size(), ")不匹配，重置存档")
+					_ensure_status_array()
+				else:
+					unlocked_status = data
+					print("📂[管理器] 读取成功！状态: ", unlocked_status)
 			else:
-				print("🔴[管理器] 读取失败：存档格式错误")
+				print("🔴[管理器] 读取失败：存档格式错误，重置")
+				_ensure_status_array()
 		else:
-			print("🔴[管理器] 读取失败：文件损坏")
+			print("🔴[管理器] 读取失败：文件损坏，重置")
+			_ensure_status_array()
 	else:
 		print("📂[管理器] 未找到存档，使用初始状态")
+		_ensure_status_array()
 		
 # 事件名 -> 卡片索引 映射表
 const EVENT_TO_CARD := {
@@ -72,22 +83,26 @@ const EVENT_TO_CARD := {
 }
 
 func unlock_by_event(event_name: String) -> void:
-	print("📩[管理器] 收到事件: ", event_name)
-	
+	print("📩[管理器] 收到解锁事件: ", event_name)
+	print("   当前状态: ", unlocked_status)
+
 	if not EVENT_TO_CARD.has(event_name):
-		print("⚠️[管理器] 未绑定该事件，忽略")
+		print("⚠️[管理器] 未绑定该事件 [", event_name, "]，忽略")
 		return
-		
+
 	var card_index = EVENT_TO_CARD[event_name]
+	print("   映射到卡片索引: ", card_index, " (", CARD_DATA[card_index].title, ")")
+
 	if is_unlocked(card_index):
-		print("⚠️[管理器] 卡片 ", card_index, " 已解锁，跳过")
+		print("⚠️[管理器] 卡片 [", card_index, "] 已解锁，跳过")
 		return
-		
+
 	unlocked_status[card_index] = true
 	_save_data()
-	
+
 	var card_title = CARD_DATA[card_index].title
 	print("🎉[管理器] 解锁成功 -> ", card_title)
+	print("   更新后状态: ", unlocked_status)
 	card_unlocked.emit(card_index)
 	list_refresh_needed.emit()
 

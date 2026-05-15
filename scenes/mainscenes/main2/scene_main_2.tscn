@@ -25,8 +25,8 @@ size = Vector2(20, 44.26718)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8b6n7"]
 size = Vector2(791.3034, 52.95836)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wood"]
-radius = 64.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8awq"]
+size = Vector2(474, 112)
 
 [node name="SceneMain2" type="Node2D" unique_id=1543794146]
 script = ExtResource("1_24du7")
@@ -38,7 +38,7 @@ texture = ExtResource("2_h8awq")
 centered = false
 
 [node name="Player" parent="Sprite2D" unique_id=1451378286 instance=ExtResource("4_5hhdo")]
-position = Vector2(967, 887)
+position = Vector2(855, 759.00006)
 scale = Vector2(1.4629896, 1.5575986)
 
 [node name="Camera2D" type="Camera2D" parent="Sprite2D/Player" unique_id=1362894112]
@@ -102,7 +102,8 @@ collision_mask = 2
 script = ExtResource("8_menkou")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/menkou/MenKouEntry" unique_id=-1294967285]
-shape = SubResource("CircleShape2D_wood")
+position = Vector2(227, -96)
+shape = SubResource("RectangleShape2D_h8awq")
 
 [node name="PromptLabel" type="Label" parent="Sprite2D/menkou/MenKouEntry" unique_id=-1294967284]
 offset_left = -40.0

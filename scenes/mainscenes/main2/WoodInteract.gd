@@ -42,7 +42,12 @@ func _select_wood():
 	if has_method("set_collision_layer_value"):
 		set_collision_layer_value(1, false)
 	print("[Wood] 准备跳转: ", level2_scene_path)
-	if FileAccess.file_exists(level2_scene_path):
+	if ResourceLoader.exists(level2_scene_path):
 		SceneManager.change_scene(level2_scene_path, {"pattern": "fade", "speed": 2.0})
 	else:
-		push_error("[Wood] 场景文件不存在: " + level2_scene_path)
+		var scene_resource = ResourceLoader.load(level2_scene_path, "PackedScene", ResourceLoader.CACHE_MODE_REPLACE)
+		if scene_resource:
+			print("[Wood] 直接加载成功, 切换场景")
+			SceneManager.change_scene(level2_scene_path, {"pattern": "fade", "speed": 2.0})
+		else:
+			push_error("[Wood] 场景加载失败: " + level2_scene_path)

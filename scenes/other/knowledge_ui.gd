@@ -29,22 +29,23 @@ func _ready():
 	print("🎨[UI] 面板就绪")
 
 func _refresh_list():
-	print("🔄[UI] 开始刷新列表...")
+	print("🔄[UI] 开始刷新列表... (当前存档状态:", KnowledgeManager.unlocked_status, ")")
 	item_list.clear()
-	
+
+	var unlocked_count = 0
 	for i in range(KnowledgeManager.CARD_DATA.size()):
 		var card = KnowledgeManager.CARD_DATA[i]
-		item_list.add_item(card.title)
-		
+
 		if not KnowledgeManager.is_unlocked(i):
-			item_list.set_item_text(i, "???")
-			item_list.set_item_disabled(i, true)
-			print("   🔒 第", i, "项：未解锁")
-		else:
-			item_list.set_item_disabled(i, false)
-			print("   🔓 第", i, "项：已解锁")
-			
-	print("✅[UI] 列表刷新完成，共 ", item_list.get_item_count(), " 项")
+			print("   🔒 第", i, "项 [", card.title, "]：未解锁，跳过")
+			continue
+
+		item_list.add_item(card.title)
+		item_list.set_item_disabled(item_list.get_item_count() - 1, false)
+		unlocked_count += 1
+		print("   📖 第", i, "项 [", card.title, "]：已解锁，显示")
+
+	print("✅[UI] 列表刷新完成，共 ", item_list.get_item_count(), " 项可见 (总", KnowledgeManager.CARD_DATA.size(), "张)")
 
 func _on_item_selected(index):
 	_show_detail(index)

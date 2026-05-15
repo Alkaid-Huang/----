@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dc0je7q2ltugp" path="res://scenes/components/interactable_label_component.tscn" id="3_udwt8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udwt8"]
-size = Vector2(20, 42)
+size = Vector2(40, 45)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cmjea"]
-radius = 31.257
+radius = 40.0
 
 [node name="NPC1" type="CharacterBody2D" unique_id=798983459]
 script = ExtResource("1_cmjea")
@@ -19,7 +19,7 @@ scale = Vector2(0.051250003, 0.058749992)
 texture = ExtResource("2_cmjea")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1077975042]
-position = Vector2(5.04871e-29, 9.536743e-07)
+position = Vector2(-4, 1.5000008)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_udwt8")
 

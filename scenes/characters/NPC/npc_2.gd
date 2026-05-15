@@ -57,7 +57,12 @@ func _talk_and_jump():
 	print("[NPC2] 等待对话结束...")
 	await DialogueManager.dialogue_ended
 	print("[NPC2] 对话结束, 准备跳转: ", target_scene)
-	if FileAccess.file_exists(target_scene):
+	if ResourceLoader.exists(target_scene):
 		SceneManager.change_scene(target_scene, {"pattern": "fade", "speed": 2.0})
 	else:
-		push_error("[NPC2] 目标场景不存在: ", target_scene)
+		var scene_resource = ResourceLoader.load(target_scene, "PackedScene", ResourceLoader.CACHE_MODE_REPLACE)
+		if scene_resource:
+			print("[NPC2] 直接加载成功, 切换场景")
+			SceneManager.change_scene(target_scene, {"pattern": "fade", "speed": 2.0})
+		else:
+			push_error("[NPC2] 场景加载失败: ", target_scene)

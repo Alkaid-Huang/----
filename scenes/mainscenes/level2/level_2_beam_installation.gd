@@ -114,7 +114,12 @@ func _on_beam_fell_off():
 
 func _return_to_main_scene():
 	print("[Level2] 返回主场景: ", return_scene_path)
-	if FileAccess.file_exists(return_scene_path):
+	if ResourceLoader.exists(return_scene_path):
 		SceneManager.change_scene(return_scene_path, {"pattern": "fade", "speed": 2.0})
 	else:
-		push_error("[Level2] 返回场景不存在: ", return_scene_path)
+		var scene_resource = ResourceLoader.load(return_scene_path, "PackedScene", ResourceLoader.CACHE_MODE_REPLACE)
+		if scene_resource:
+			print("[Level2] 直接加载成功, 返回主场景")
+			SceneManager.change_scene(return_scene_path, {"pattern": "fade", "speed": 2.0})
+		else:
+			push_error("[Level2] 返回场景加载失败: ", return_scene_path)

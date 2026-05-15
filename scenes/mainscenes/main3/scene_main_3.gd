@@ -134,10 +134,15 @@ func _start_npc_dialogue():
 
 func _goto_level3():
 	print("[Main3] 跳转到关卡3: ", LEVEL3_PATH)
-	if FileAccess.file_exists(LEVEL3_PATH):
+	if ResourceLoader.exists(LEVEL3_PATH):
 		SceneManager.change_scene(LEVEL3_PATH, {"pattern": "fade", "speed": 2.0})
 	else:
-		push_error("[Main3] Level3场景文件不存在: ", LEVEL3_PATH)
+		var scene_resource = ResourceLoader.load(LEVEL3_PATH, "PackedScene", ResourceLoader.CACHE_MODE_REPLACE)
+		if scene_resource:
+			print("[Main3] 直接加载成功, 切换场景")
+			SceneManager.change_scene(LEVEL3_PATH, {"pattern": "fade", "speed": 2.0})
+		else:
+			push_error("[Main3] Level3场景加载失败: ", LEVEL3_PATH)
 
 func _show_completion_image():
 	var canvas_layer = CanvasLayer.new()
@@ -150,6 +155,7 @@ func _show_completion_image():
 	bg.texture = load("res://assets/古宅修缮完成.jpg")
 	bg.stretch_mode = TextureRect.STRETCH_SCALE
 	bg.mouse_filter = Control.MOUSE_FILTER_STOP
+	bg.modulate = Color(1, 1, 1, 0)
 	canvas_layer.add_child(bg)
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 
@@ -161,7 +167,9 @@ func _show_completion_image():
 	fade.set_anchors_preset(Control.PRESET_FULL_RECT)
 
 	var tween_in = create_tween()
+	tween_in.set_parallel(true)
 	tween_in.tween_property(fade, "color", Color(0, 0, 0, 0), 2.0)
+	tween_in.tween_property(bg, "modulate", Color(1, 1, 1, 1), 2.0)
 
 	await get_tree().create_timer(4.0).timeout
 
